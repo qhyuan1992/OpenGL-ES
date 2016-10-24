@@ -3,7 +3,6 @@ package com.example.opengles_Illumination;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.MotionEvent;
 
 public class MainActivity extends Activity {
 

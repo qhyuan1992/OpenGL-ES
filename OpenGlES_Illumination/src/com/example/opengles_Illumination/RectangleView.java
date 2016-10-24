@@ -37,13 +37,10 @@ public class RectangleView extends GLSurfaceView{
         return true;
     }
 	
-	
 	class MyRender implements GLSurfaceView.Renderer {
 		private Rectangle[] mRectangles;
-		
 		float yAngle;
     	float xAngle;
-		
 		@Override
 		public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 			GLES20.glClearColor(1, 1, 1, 1);
@@ -75,9 +72,8 @@ public class RectangleView extends GLSurfaceView{
             	Matrix.rotateM(mModuleMatrix, 0, yAngle, 0, 1, 0);
             	Matrix.multiplyMM(mViewProjectionMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
             	Matrix.multiplyMM(mMVPMatrix, 0, mViewProjectionMatrix, 0, mModuleMatrix, 0);
-                rectangle.draw(mMVPMatrix);
+                rectangle.draw(mMVPMatrix, mModuleMatrix);
             }
 		}
 	}
-	
 }
