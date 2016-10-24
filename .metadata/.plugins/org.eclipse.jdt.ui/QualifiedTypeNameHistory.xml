@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.nio.ByteBuffer"/>
+<fullyQualifiedTypeName name="java.nio.ByteOrder"/>
+<fullyQualifiedTypeName name="java.nio.FloatBuffer"/>
+<fullyQualifiedTypeName name="android.opengl.GLSurfaceView"/>
+<fullyQualifiedTypeName name="com.example._1.SixPointStar"/>
+<fullyQualifiedTypeName name="android.opengl.GLES20"/>
+<fullyQualifiedTypeName name="android.opengl.Matrix"/>
+<fullyQualifiedTypeName name="com.example.sixstar.SixPointStar"/>
+<fullyQualifiedTypeName name="de.robv.android.xposed.IXposedHookLoadPackage"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="com.example.test.R.id"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="android.location.LocationManager"/>
+<fullyQualifiedTypeName name="de.robv.android.xposed.XposedHelpers"/>
+<fullyQualifiedTypeName name="de.robv.android.xposed.XC_MethodHook"/>
+<fullyQualifiedTypeName name="android.location.Location"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Field"/>
+<fullyQualifiedTypeName name="com.example.opengles_circle.Rectangle"/>
+<fullyQualifiedTypeName name="com.example.opengles_circle.RectangleView"/>
+<fullyQualifiedTypeName name="com.example.opengles_rectangle2.Rectangle"/>
+</qualifiedTypeNameHistroy>

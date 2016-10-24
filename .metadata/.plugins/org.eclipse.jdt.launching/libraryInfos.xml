@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="D:\SoftWare\Java\jdk1.7\jre" version="1.7.0_21">
+<bootpath>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\resources.jar"/>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\rt.jar"/>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\sunrsasign.jar"/>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\jsse.jar"/>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\jce.jar"/>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\charsets.jar"/>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\jfr.jar"/>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="D:\SoftWare\Java\jdk" version="1.8.0_20">
+<bootpath>
+<entry path="D:\SoftWare\Java\jdk\jre\lib\resources.jar"/>
+<entry path="D:\SoftWare\Java\jdk\jre\lib\rt.jar"/>
+<entry path="D:\SoftWare\Java\jdk\jre\lib\sunrsasign.jar"/>
+<entry path="D:\SoftWare\Java\jdk\jre\lib\jsse.jar"/>
+<entry path="D:\SoftWare\Java\jdk\jre\lib\jce.jar"/>
+<entry path="D:\SoftWare\Java\jdk\jre\lib\charsets.jar"/>
+<entry path="D:\SoftWare\Java\jdk\jre\lib\jfr.jar"/>
+<entry path="D:\SoftWare\Java\jdk\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\SoftWare\Java\jdk\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\SoftWare\Java\jdk\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="D:\SoftWare\Java\jdk1.7" version="1.7.0_21">
+<bootpath>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\resources.jar"/>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\rt.jar"/>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\sunrsasign.jar"/>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\jsse.jar"/>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\jce.jar"/>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\charsets.jar"/>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\jfr.jar"/>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\SoftWare\Java\jdk1.7\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

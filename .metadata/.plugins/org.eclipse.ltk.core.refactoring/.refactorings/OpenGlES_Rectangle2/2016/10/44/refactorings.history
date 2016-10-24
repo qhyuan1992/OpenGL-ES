@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.example.opengles_rectangle&apos; to &apos;com.example.opengles_rectangle2&apos;&#x0D;&#x0A;- Original project: &apos;OpenGlES_Rectangle2&apos;&#x0D;&#x0A;- Original element: &apos;OpenGlES_Rectangle2/src/com.example.opengles_rectangle&apos;&#x0D;&#x0A;- Renamed element: &apos;OpenGlES_Rectangle2/src/com.example.opengles_rectangle2&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.example.opengles_rectangle&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;com.example.opengles_rectangle" name="com.example.opengles_rectangle2" qualified="false" references="true" stamp="1477221440611" textual="false" version="1.0"/>
+</session>

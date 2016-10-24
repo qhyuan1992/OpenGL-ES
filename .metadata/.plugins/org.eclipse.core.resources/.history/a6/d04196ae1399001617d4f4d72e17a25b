@@ -1,0 +1,132 @@
+package com.example.opengles_rectangle2;
+
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
+import java.util.ArrayList;
+
+import android.opengl.GLES20;
+
+public class Rectangle {
+	private FloatBuffer mVertexBuffer;
+	private int mProgram;
+	private int mPositionHandle;
+	private int muMVPMatrixHandle;
+	
+	public Rectangle(float r) {
+		initVetexData(r);
+	}
+	
+	public void initVertexData() {
+		
+	}
+		
+	public void initVetexData(float r) {
+		// 初始化顶点坐标
+		ArrayList<Float> alVertix = new ArrayList<Float>();
+		final int angleSpan = 10;
+		for (int vAngle = -90; vAngle < 90; vAngle = vAngle + angleSpan)
+		{
+			for (int hAngle = 0; hAngle <= 360; hAngle = hAngle + angleSpan) {
+				float x0 = (float) (Math.cos(Math.toRadians(vAngle)) * Math.cos(Math
+						.toRadians(hAngle)));
+				float y0 = (float) (Math.cos(Math.toRadians(vAngle)) * Math.sin(Math
+						.toRadians(hAngle)));
+				float z0 = (float) (Math.sin(Math
+						.toRadians(vAngle)));
+
+				float x1 = (float) (Math.cos(Math.toRadians(vAngle)) * Math.cos(Math
+						.toRadians(hAngle + angleSpan)));
+				float y1 = (float) (Math.cos(Math.toRadians(vAngle)) * Math.sin(Math
+						.toRadians(hAngle + angleSpan)));
+				float z1 = (float) (Math.sin(Math
+						.toRadians(vAngle)));
+
+				float x2 = (float) (Math.cos(Math.toRadians(vAngle + angleSpan)) * Math
+						.cos(Math.toRadians(hAngle + angleSpan)));
+				float y2 = (float) (Math.cos(Math.toRadians(vAngle + angleSpan)) * Math
+						.sin(Math.toRadians(hAngle + angleSpan)));
+				float z2 = (float) (Math.sin(Math
+						.toRadians(vAngle + angleSpan)));
+
+				float x3 = (float) (Math.cos(Math.toRadians(vAngle + angleSpan)) * Math
+						.cos(Math.toRadians(hAngle)));
+				float y3 = (float) (Math.cos(Math.toRadians(vAngle + angleSpan)) * Math
+						.sin(Math.toRadians(hAngle)));
+				float z3 = (float) (Math.sin(Math
+						.toRadians(vAngle + angleSpan)));
+
+				alVertix.add(x1);
+				alVertix.add(y1);
+				alVertix.add(z1);
+				alVertix.add(x3);
+				alVertix.add(y3);
+				alVertix.add(z3);
+				alVertix.add(x0);
+				alVertix.add(y0);
+				alVertix.add(z0);
+
+				alVertix.add(x1);
+				alVertix.add(y1);
+				alVertix.add(z1);
+				alVertix.add(x2);
+				alVertix.add(y2);
+				alVertix.add(z2);
+				alVertix.add(x3);
+				alVertix.add(y3);
+				alVertix.add(z3);
+			}
+		}
+		int vCount = alVertix.size() / 3;
+		float vertices[] = new float[vCount * 3];
+		for (int i = 0; i < alVertix.size(); i++) {
+			vertices[i] = alVertix.get(i);
+		}
+		
+		ByteBuffer buffer = ByteBuffer.allocateDirect(vertices.length * 4);
+		buffer.order(ByteOrder.nativeOrder());
+		mVertexBuffer = buffer.asFloatBuffer();
+		mVertexBuffer.put(vertices);
+		mVertexBuffer.position(0);
+		
+		int vertexShader = loaderShader(GLES20.GL_VERTEX_SHADER, vertexShaderCode);
+		int fragmentShader = loaderShader(GLES20.GL_FRAGMENT_SHADER, fragmentShaderCode);
+		
+		mProgram = GLES20.glCreateProgram();
+		GLES20.glAttachShader(mProgram, vertexShader);
+		GLES20.glAttachShader(mProgram, fragmentShader);
+		GLES20.glLinkProgram(mProgram);
+		
+		mPositionHandle = GLES20.glGetAttribLocation(mProgram, "aPosition");
+		muMVPMatrixHandle = GLES20.glGetUniformLocation(mProgram, "uMVPMatrix");
+	}
+	
+	public void draw(float[] mvpMatrix) {
+		GLES20.glUseProgram(mProgram);
+		// 将顶点数据传递到管线，顶点着色器
+		GLES20.glVertexAttribPointer(mPositionHandle, 3, GLES20.GL_FLOAT, false, 3*4, mVertexBuffer);
+		GLES20.glEnableVertexAttribArray(mPositionHandle);
+		GLES20.glUniformMatrix4fv(muMVPMatrixHandle, 1, false, mvpMatrix, 0);
+		// 绘制图元
+		GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
+	}
+	
+	private int loaderShader(int type, String shaderCode) {
+		int shader = GLES20.glCreateShader(type);
+		GLES20.glShaderSource(shader, shaderCode);
+		GLES20.glCompileShader(shader);
+		return shader;
+	}
+
+	private String vertexShaderCode = "uniform mat4 uMVPMatrix;"
+			+ "attribute vec3 aPosition;"
+			+ "void main(){"
+			+ "gl_Position = uMVPMatrix * vec4(aPosition,1);"
+			+ "}";
+
+	private String fragmentShaderCode = "precision mediump float;"
+			+ "void main(){"
+			+ "gl_FragColor = vec4(1,0,0,0);"
+			+ "}";
+	
+}
