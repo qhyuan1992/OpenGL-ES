@@ -2,22 +2,24 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="0.5f" key="selection"/>
+		<item value="glActiveTexture" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="0.5"/>
-			<item value="Constant.UNIT_SIZE"/>
-			<item value="    public void initVertexData()"/>
-			<item value="muMVPMatrixHandle"/>
-			<item value="ACTIVE"/>
-			<item value="diffuseTemp"/>
-			<item value="active"/>
+			<item value="glActiveTexture"/>
+			<item value="sTexture"/>
+			<item value="robot"/>
+			<item value="U_TEXTURE_UNIT"/>
 			<item value="aTexCoor"/>
+			<item value="muMVPMatrixHandle"/>
+			<item value="//中间为白色"/>
+			<item value="mColorHandle"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
+			<item value="1"/>
 			<item value="0.5f"/>
 			<item value="0.5"/>
 		</list>

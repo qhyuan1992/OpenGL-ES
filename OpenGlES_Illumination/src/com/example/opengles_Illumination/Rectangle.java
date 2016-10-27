@@ -150,7 +150,7 @@ public class Rectangle {
 		GLES20.glCompileShader(shader);
 		return shader;
 	}
-
+	
 	private String vertexShaderCode = "uniform mat4 uMVPMatrix;"
 			+ "uniform mat4 uMMatrix;" // 模型变换的矩阵
 			+ "uniform vec3 uLightLocation;" // 光源位置
@@ -174,6 +174,32 @@ public class Rectangle {
 			+ "void main(){"
 			+ "gl_FragColor = vColor*vDiffuse;"
 			+ "}";
+	
+	
+
+//	private String vertexShaderCode = "uniform mat4 uMVPMatrix;"
+//			+ "uniform mat4 uMMatrix;" // 模型变换的矩阵
+//			+ "uniform vec3 uLightLocation;" // 光源位置
+//			+ "attribute vec4 aColor;"
+//			+ "varying  vec4 vColor;"  
+//			+ "varying vec4 vDiffuse;"  // 传递给片元着色器的散射光强度
+//			+ "attribute vec3 aPosition;" // 顶点位置
+//			+ "void main(){"  
+//			+ "vec3 normalVectorOrigin = aPosition;"  // 原始采用点法向量
+//			+ "vec3 normalVector = normalize((uMMatrix*vec4(normalVectorOrigin,1)).xyz);" // 归一化的变换后的法向量
+//			+ "vec3 vectorLight = normalize(uLightLocation - (uMMatrix * vec4(aPosition,1)).xyz);" // 挂一花的光源到点的向量
+//			+ "float factor = max(0.0, dot(normalVector, vectorLight));"
+//			+ "vDiffuse = factor*vec4(1,1,1,1.0);" // 散射光强度
+//			+ "gl_Position = uMVPMatrix * vec4(aPosition,1);"
+//			+ "vColor = aColor;"
+//			+ "}";
+//
+//	private String fragmentShaderCode = "precision mediump float;"
+//			+ "varying  vec4 vColor;"
+//			+ "varying vec4 vDiffuse;" // 从顶点着色器传过来的插值散射光的值，散射光的值依赖顶点。
+//			+ "void main(){"
+//			+ "gl_FragColor = vColor*vDiffuse;"
+//			+ "}";
 	
 	/*private String vertexShaderCode = "uniform mat4 uMVPMatrix;"
 			+ "attribute vec4 aColor;"
