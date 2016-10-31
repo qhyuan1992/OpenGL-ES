@@ -38,16 +38,13 @@ public class RectangleView extends GLSurfaceView{
     }
 	
 	class MyRender implements GLSurfaceView.Renderer {
-		private Rectangle[] mRectangles;
+		private Rectangle mRectangle;
 		float yAngle;
     	float xAngle;
 		@Override
 		public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 			GLES20.glClearColor(1, 1, 1, 1);
-			mRectangles = new Rectangle[5];
-			for (int i = 0; i < mRectangles.length; i++) {
-				mRectangles[i] = new Rectangle(i);  
-			}
+			mRectangle = new Rectangle();
 			GLES20.glEnable(GLES20.GL_DEPTH_TEST);
 		}
 
@@ -66,14 +63,12 @@ public class RectangleView extends GLSurfaceView{
 		@Override
 		public void onDrawFrame(GL10 gl) {
             GLES20.glClear( GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
-            for (Rectangle rectangle : mRectangles) {
-            	Matrix.setIdentityM(mModuleMatrix, 0);
-            	Matrix.rotateM(mModuleMatrix, 0, xAngle, 1, 0, 0);
-            	Matrix.rotateM(mModuleMatrix, 0, yAngle, 0, 1, 0);
-            	Matrix.multiplyMM(mViewProjectionMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
-            	Matrix.multiplyMM(mMVPMatrix, 0, mViewProjectionMatrix, 0, mModuleMatrix, 0);
-                rectangle.draw(mMVPMatrix, mModuleMatrix);
-            }
+            Matrix.setIdentityM(mModuleMatrix, 0);
+            Matrix.rotateM(mModuleMatrix, 0, xAngle, 1, 0, 0);
+            Matrix.rotateM(mModuleMatrix, 0, yAngle, 0, 1, 0);
+            Matrix.multiplyMM(mViewProjectionMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
+            Matrix.multiplyMM(mMVPMatrix, 0, mViewProjectionMatrix, 0, mModuleMatrix, 0);
+            mRectangle.draw(mMVPMatrix, mModuleMatrix);
 		}
 	}
 }

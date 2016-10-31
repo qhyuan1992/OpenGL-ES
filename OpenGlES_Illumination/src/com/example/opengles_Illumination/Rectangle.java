@@ -15,11 +15,11 @@ public class Rectangle {
 	private int muMMatrixHandle;
 	private int muLightLocationHandle;
 
-	public Rectangle(float r) {
-		initVetexData(r);
+	public Rectangle() {
+		initVetexData();
 	}
 
-	public void initVetexData(float i) {
+	public void initVetexData() {
 		float vertices[] = new float[] {
 				// 顶点             颜色
 	        	//前面
