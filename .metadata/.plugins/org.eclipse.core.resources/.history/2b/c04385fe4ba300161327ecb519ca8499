@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_liner"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <SeekBar
+        android:id="@+id/sb"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:max="100" >
+    </SeekBar>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="性别" >
+
+        <RadioButton
+            android:id="@+id/nearest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="nearest" >
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="linear" >
+        </RadioButton>
+        
+        <RadioButton
+            android:id="@+id/linear_nesrest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="linear_nesrest" >
+        </RadioButton>
+        
+        <RadioButton
+            android:id="@+id/linear_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="linear_linear" >
+        </RadioButton>
+    </RadioGroup>
+
+</LinearLayout>

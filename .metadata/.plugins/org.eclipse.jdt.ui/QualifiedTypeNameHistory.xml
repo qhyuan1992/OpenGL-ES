@@ -23,4 +23,11 @@
 <fullyQualifiedTypeName name="com.example.opengles_texture.R.drawable"/>
 <fullyQualifiedTypeName name="android.opengl.GLUtils"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="android.widget.RadioGroup"/>
+<fullyQualifiedTypeName name="com.example.opengles_texture2.R.id"/>
+<fullyQualifiedTypeName name="android.widget.RadioGroup.OnCheckedChangeListener"/>
+<fullyQualifiedTypeName name="javax.microedition.khronos.egl.EGL"/>
+<fullyQualifiedTypeName name="android.opengl.GLSurfaceView.EGLWindowSurfaceFactory"/>
+<fullyQualifiedTypeName name="javax.microedition.khronos.egl.EGL11"/>
+<fullyQualifiedTypeName name="javax.microedition.khronos.egl.EGL10"/>
 </qualifiedTypeNameHistroy>

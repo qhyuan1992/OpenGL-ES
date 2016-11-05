@@ -1,5 +1,8 @@
 package com.example.opengles_texture2;
 
+import javax.microedition.khronos.egl.EGL;
+import javax.microedition.khronos.egl.EGL10;
+import javax.microedition.khronos.egl.EGL11;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;activity_main.xml&apos; to &apos;layout&apos;&#x0D;&#x0A;- Original project: &apos;OpenGlES_Texture2&apos;&#x0D;&#x0A;- Destination element: &apos;layout&apos;&#x0D;&#x0A;- Original element: &apos;activity_main.xml&apos;" description="Copy file" element1="res/layout/activity_main.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1478345737575" target="/OpenGlES_StencilTest/res/layout" units="0" version="1.0"/>
+</session>

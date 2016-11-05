@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;OpenGlES_StencilTest/src/com.example.opengles_stenciltest&apos;&#x0D;&#x0A;- Original project: &apos;OpenGlES_Rectangle2&apos;&#x0D;&#x0A;- Destination element: &apos;OpenGlES_StencilTest/src/com.example.opengles_stenciltest&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     com.example.opengles_rectangle2.Rectangle.java&#x0D;&#x0A;     com.example.opengles_rectangle2.RectangleView.java" description="Copy compilation units" destination="=OpenGlES_StencilTest/src&lt;com.example.opengles_stenciltest" element1="/src&lt;com.example.opengles_rectangle2{Rectangle.java" element2="/src&lt;com.example.opengles_rectangle2{RectangleView.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1478336694996" units="2" version="1.0"/>
+</session>

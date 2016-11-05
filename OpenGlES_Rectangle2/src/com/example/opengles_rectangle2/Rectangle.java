@@ -13,11 +13,11 @@ public class Rectangle {
 	private int mPositionHandle;
 	private int muMVPMatrixHandle;
 
-	public Rectangle(float r) {
-		initVetexData(r);
+	public Rectangle() {
+		initVetexData();
 	}
 
-	public void initVetexData(float i) {
+	public void initVetexData() {
 		float vertices[] = new float[] {
 				// 第一个正方形
 				(float) -0.5, (float) -0.5 +  + (float)(-0.1*i), (float) (1*i),
