@@ -38,7 +38,8 @@ public class ShapeView extends GLSurfaceView{
     }
 	
 	class MyRender implements GLSurfaceView.Renderer {
-		private Shape mRectangle;
+		private Shape mShap1;
+		private Shape mShap2;
 		float yAngle;
     	float xAngle;
 		private Context mContext;
@@ -48,7 +49,8 @@ public class ShapeView extends GLSurfaceView{
 		@Override
 		public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 			GLES20.glClearColor(0.5f, 0.5f, 0.5f, 1);
-			mRectangle = new Shape(mContext);
+			mShap1 = new Shape(mContext,"obj1.obj", R.drawable.t1);
+			mShap2 = new Shape(mContext,"obj2.obj", R.drawable.t3);
 			GLES20.glEnable(GLES20.GL_DEPTH_TEST);
 		}
 
@@ -66,15 +68,26 @@ public class ShapeView extends GLSurfaceView{
 	    private final float[] mMVPMatrix = new float[16];
 		@Override
 		public void onDrawFrame(GL10 gl) {
-			GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT
-					| GLES20.GL_COLOR_BUFFER_BIT);
+			GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
+			// draw shape1
 			Matrix.setIdentityM(mModuleMatrix, 0);
+			Matrix.translateM(mModuleMatrix, 0, 0, 0.5f, 0);
 			Matrix.rotateM(mModuleMatrix, 0, xAngle, 1, 0, 0);
 			Matrix.rotateM(mModuleMatrix, 0, yAngle, 0, 1, 0);
 			Matrix.multiplyMM(mViewProjectionMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
 			Matrix.multiplyMM(mMVPMatrix, 0, mViewProjectionMatrix, 0, mModuleMatrix, 0);
-			mRectangle.setValue(mMVPMatrix, mModuleMatrix);
-			mRectangle.draw();
+			mShap1.setValue(mMVPMatrix, mModuleMatrix);
+			mShap1.draw();
+			
+			// draw shape2
+			Matrix.setIdentityM(mModuleMatrix, 0);
+			Matrix.translateM(mModuleMatrix, 0, 0, -0.5f, 0);
+			Matrix.rotateM(mModuleMatrix, 0, xAngle, 1, 0, 0);
+			Matrix.rotateM(mModuleMatrix, 0, yAngle, 0, 1, 0);
+			Matrix.multiplyMM(mViewProjectionMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
+			Matrix.multiplyMM(mMVPMatrix, 0, mViewProjectionMatrix, 0, mModuleMatrix, 0);
+			mShap2.setValue(mMVPMatrix, mModuleMatrix);
+			mShap2.draw();
 		}
 	}
 }

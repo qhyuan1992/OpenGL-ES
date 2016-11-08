@@ -15,7 +15,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
-import android.util.Log;
 
 public class Shape {
 	private FloatBuffer mVertexBuffer;
@@ -32,15 +31,25 @@ public class Shape {
 	private FloatBuffer mTexureBuffer;
 	private FloatBuffer mNormalBuffer;
 	private int mNormalHandle;
-	public Shape(Context context) {
+	
+	private int mVertexCount;
+	private float vertices[];
+	private float texures[];
+	private float normals[];
+	
+	private String mObjFileName;
+	private int mTexrureRes;
+	public Shape(Context context, String objFileName,int texture) {
 		this.mContext = context;
+		this.mObjFileName = objFileName;
+		this.mTexrureRes = texture;
 		initVetexData();
 	}
 
 	public void initVetexData() {
 		InputStream is = null;
 		try {
-			is = mContext.getAssets().open("obj1.obj");
+			is = mContext.getAssets().open(mObjFileName);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -85,11 +94,11 @@ public class Shape {
 		muMMatrixHandle = GLES20.glGetUniformLocation(mProgram, "uMMatrix");
 		muLightLocationHandle = GLES20.glGetUniformLocation(mProgram, "uLightLocation");
 		muTextureHandle = GLES20.glGetUniformLocation(mProgram, "uTexture");
-		initTexture();
+		initTexture(mTexrureRes);
 	}
 
 	// 初始化纹理
-	public void initTexture() {
+	public void initTexture(int res) {
 		int [] textures = new int[1];
 		GLES20.glGenTextures(1, textures, 0);
 		textureId = textures[0];
@@ -98,7 +107,7 @@ public class Shape {
 		GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D,GLES20.GL_TEXTURE_MAG_FILTER,GLES20.GL_LINEAR);
 		GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_S,GLES20.GL_MIRRORED_REPEAT);
 		GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_T,GLES20.GL_MIRRORED_REPEAT);
-        Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.t1);
+        Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), res);
         GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bitmap, 0);
         bitmap.recycle();
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, 0);
@@ -120,7 +129,7 @@ public class Shape {
 		GLES20.glEnableVertexAttribArray(mTextureCoordHandle);
 		GLES20.glEnableVertexAttribArray(mNormalHandle);
 		
-		GLES20.glUniform3f(muLightLocationHandle, 0, 10, 10);
+		GLES20.glUniform3f(muLightLocationHandle, 0, 0, 10);
 		GLES20.glUniformMatrix4fv(muMVPMatrixHandle, 1, false, mvpMatrix, 0);
 		GLES20.glUniformMatrix4fv(muMMatrixHandle, 1, false, mMatrix, 0);
 		GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textureId);
@@ -160,10 +169,5 @@ public class Shape {
 			+ "void main(){"
 			+ "gl_FragColor = (vDiffuse + vec4(0.6,0.6,0.6,1))*texture2D(uTexture, vec2(vTextureCoord.s,vTextureCoord.t));"
 			+ "}";
-	
-	private int mVertexCount;
-	private float vertices[];
-	private float texures[];
-	private float normals[];
 	
 }
