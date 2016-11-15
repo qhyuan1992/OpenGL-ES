@@ -32,6 +32,8 @@ public class Shape {
 	private int mWindowProgram;
 	private int mLoadedTextureId;
 	private Context mContext;
+	private static int COLOR_TEXTURE = 0;
+	private static int DEPTH_TEXTURE = 1;
 	
 	public Shape(Context context) {
 		this.mContext = context;
@@ -96,92 +98,183 @@ public class Shape {
 	}
 
 	public void draw(float[] mvpMatrix, float[] mMatrix) {
-		/*================================render2texture================================*/
-		// 生成FrameBuffer
-		int [] framebuffers = new int[1];
-		GLES20.glGenFramebuffers(1, framebuffers, 0);
-		int framebufferId = framebuffers[0];
-		GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, framebufferId);
-		// 生成Texture
-		int [] textures = new int[1];
-		GLES20.glGenTextures(1, textures, 0);
-		int textureId = textures[0];
-		GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textureId);
-		GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MIN_FILTER,GLES20.GL_NEAREST);
-		GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D,GLES20.GL_TEXTURE_MAG_FILTER,GLES20.GL_LINEAR);
-		GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_S,GLES20.GL_MIRRORED_REPEAT);
-		GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_T,GLES20.GL_MIRRORED_REPEAT);
-        GLES20.glTexImage2D(GLES20.GL_TEXTURE_2D, 0, GLES20.GL_RGB, ShapeView.sScreenWidth, ShapeView.sScreenHeight, 0, GLES20.GL_RGB, GLES20.GL_UNSIGNED_SHORT_5_6_5, null);
-        // 生成Renderbuffer
-        int [] renderbuffers = new int[1];
-        GLES20.glGenRenderbuffers(1, renderbuffers, 0);
-        int renderId = renderbuffers[0];
-        GLES20.glBindRenderbuffer(GLES20.GL_RENDERBUFFER, renderId);
-        GLES20.glRenderbufferStorage(GLES20.GL_RENDERBUFFER, GLES20.GL_DEPTH_COMPONENT16, ShapeView.sScreenWidth, ShapeView.sScreenHeight);  
-        // 关联FrameBuffer和Texture、RenderBuffer
-        GLES20.glFramebufferTexture2D(GLES20.GL_FRAMEBUFFER, GLES20.GL_COLOR_ATTACHMENT0, GLES20.GL_TEXTURE_2D, textureId, 0);
-        GLES20.glFramebufferRenderbuffer(GLES20.GL_FRAMEBUFFER, GLES20.GL_DEPTH_ATTACHMENT, GLES20.GL_RENDERBUFFER, renderId);
-        if(GLES20.glCheckFramebufferStatus(GLES20.GL_FRAMEBUFFER) != GLES20.GL_FRAMEBUFFER_COMPLETE) {
-        	Log.i(TAG, "Framebuffer error");
-        }
-        GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
-        int frameBufferVertexShader = loaderShader(GLES20.GL_VERTEX_SHADER, vertexShaderCode);
-		int frameBufferFagmentShader = loaderShader(GLES20.GL_FRAGMENT_SHADER, fragmentShaderCode);
-		mFrameBufferProgram = GLES20.glCreateProgram();
-		GLES20.glAttachShader(mFrameBufferProgram, frameBufferVertexShader);
-		GLES20.glAttachShader(mFrameBufferProgram, frameBufferFagmentShader);
-		GLES20.glLinkProgram(mFrameBufferProgram);
-		int fbPositionHandle = GLES20.glGetAttribLocation(mFrameBufferProgram, "aPosition");
-		int fbNormalHandle = GLES20.glGetAttribLocation(mFrameBufferProgram, "aNormal");
-		int fbTextureCoordHandle = GLES20.glGetAttribLocation(mFrameBufferProgram, "aTextureCoord");
-		int fbuMVPMatrixHandle = GLES20.glGetUniformLocation(mFrameBufferProgram, "uMVPMatrix");
-		int fbuMMatrixHandle = GLES20.glGetUniformLocation(mFrameBufferProgram, "uMMatrix");
-		int fbuLightLocationHandle = GLES20.glGetUniformLocation(mFrameBufferProgram, "uLightLocation");
-		int fbuTextureHandle = GLES20.glGetUniformLocation(mFrameBufferProgram, "uTexture");
-		GLES20.glUseProgram(mFrameBufferProgram);
-		mVertexBuffer.position(0);
-		GLES20.glVertexAttribPointer(fbPositionHandle, 3, GLES20.GL_FLOAT, false, 3 * 4, mVertexBuffer);
-		mTexureBuffer.position(0);
-        GLES20.glVertexAttribPointer(fbTextureCoordHandle, 2, GLES20.GL_FLOAT, false, 2 * 4, mTexureBuffer);
-        mTexureBuffer.position(0);
-        GLES20.glVertexAttribPointer(fbNormalHandle, 3, GLES20.GL_FLOAT, false, 3 * 4, mNormalBuffer);
-		GLES20.glEnableVertexAttribArray(fbPositionHandle);
-		GLES20.glEnableVertexAttribArray(fbTextureCoordHandle);
-		GLES20.glEnableVertexAttribArray(fbNormalHandle);
-		GLES20.glUniform3f(fbuLightLocationHandle, 0, 10, 10);
-		GLES20.glUniformMatrix4fv(fbuMVPMatrixHandle, 1, false, mvpMatrix, 0);
-		GLES20.glUniformMatrix4fv(fbuMMatrixHandle, 1, false, mMatrix, 0);
-		GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mLoadedTextureId);
-		GLES20.glUniform1i(fbuTextureHandle, 0);
-		GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, mVertexCount);
-		
-		/*================================render2window================================*/
-		// 切换到窗口系统的缓冲区
-		GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
-		GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
-		int vertexShader = loaderShader(GLES20.GL_VERTEX_SHADER, windowVertexShaderCode);
-		int fragmentShader = loaderShader(GLES20.GL_FRAGMENT_SHADER, windowFragmentShaderCode);
-		mWindowProgram = GLES20.glCreateProgram();
-		GLES20.glAttachShader(mWindowProgram, vertexShader);
-		GLES20.glAttachShader(mWindowProgram, fragmentShader);
-		GLES20.glLinkProgram(mWindowProgram);
-		GLES20.glUseProgram(mWindowProgram);
-		int positionHandle = GLES20.glGetAttribLocation(mWindowProgram, "aPosition");
-		int textureCoordHandle = GLES20.glGetAttribLocation(mWindowProgram, "aTextureCoord");
-		int textureHandle = GLES20.glGetUniformLocation(mWindowProgram, "uTexture");
-		mSqureBuffer.position(0);
-		GLES20.glVertexAttribPointer(positionHandle, 2, GLES20.GL_FLOAT, false, (2+2) * 4, mSqureBuffer);
-		mSqureBuffer.position(2);
-        GLES20.glVertexAttribPointer(textureCoordHandle, 2, GLES20.GL_FLOAT, false, (2+2) * 4, mSqureBuffer);
-        GLES20.glEnableVertexAttribArray(positionHandle);
-		GLES20.glEnableVertexAttribArray(textureCoordHandle);
-		GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
-        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textureId);
-		GLES20.glUniform1i(textureHandle, 0);
-		GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
-		GLES20.glDeleteTextures(1, textures, 0);
-		GLES20.glDeleteFramebuffers(1, framebuffers, 0);
-		GLES20.glDeleteRenderbuffers(1, renderbuffers, 0);
+	    /*================================render2texture================================*/
+	    // 生成FrameBuffer
+	    int [] framebuffers = new int[1];
+	    GLES20.glGenFramebuffers(1, framebuffers, 0);
+	    int framebufferId = framebuffers[0];
+	    GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, framebufferId);
+	    // 生成Texture
+	    int [] textures = new int[2];
+	    GLES20.glGenTextures(2, textures, 0);
+	    int colorTxtureId = textures[COLOR_TEXTURE];
+	    int depthTxtureId = textures[DEPTH_TEXTURE];
+	    GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, colorTxtureId);
+	    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MIN_FILTER,GLES20.GL_NEAREST);
+	    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D,GLES20.GL_TEXTURE_MAG_FILTER,GLES20.GL_LINEAR);
+	    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_S,GLES20.GL_MIRRORED_REPEAT);
+	    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_T,GLES20.GL_MIRRORED_REPEAT);
+	    GLES20.glTexImage2D(GLES20.GL_TEXTURE_2D, 0, GLES20.GL_RGB, ShapeView.sScreenWidth, ShapeView.sScreenHeight, 0, GLES20.GL_RGB, GLES20.GL_UNSIGNED_SHORT_5_6_5, null);
+	    
+	    GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, depthTxtureId);
+	    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MIN_FILTER,GLES20.GL_NEAREST);
+	    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D,GLES20.GL_TEXTURE_MAG_FILTER,GLES20.GL_LINEAR);
+	    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_S,GLES20.GL_MIRRORED_REPEAT);
+	    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_T,GLES20.GL_MIRRORED_REPEAT);
+	    GLES20.glTexImage2D(GLES20.GL_TEXTURE_2D, 0, GLES20.GL_DEPTH_COMPONENT, ShapeView.sScreenWidth, ShapeView.sScreenHeight, 0, GLES20.GL_DEPTH_COMPONENT, GLES20.GL_UNSIGNED_SHORT, null);
+	    // 关联FrameBuffer和Texture
+	    GLES20.glFramebufferTexture2D(GLES20.GL_FRAMEBUFFER, GLES20.GL_COLOR_ATTACHMENT0, GLES20.GL_TEXTURE_2D, colorTxtureId, 0);
+	    GLES20.glFramebufferTexture2D(GLES20.GL_FRAMEBUFFER, GLES20.GL_DEPTH_ATTACHMENT, GLES20.GL_TEXTURE_2D, depthTxtureId, 0);
+	    if(GLES20.glCheckFramebufferStatus(GLES20.GL_FRAMEBUFFER) != GLES20.GL_FRAMEBUFFER_COMPLETE) {
+	        Log.i(TAG, "Framebuffer error");
+	    }
+	    
+	    GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
+	    int frameBufferVertexShader = loaderShader(GLES20.GL_VERTEX_SHADER, vertexShaderCode);
+	    int frameBufferFagmentShader = loaderShader(GLES20.GL_FRAGMENT_SHADER, fragmentShaderCode);
+	    mFrameBufferProgram = GLES20.glCreateProgram();
+	    GLES20.glAttachShader(mFrameBufferProgram, frameBufferVertexShader);
+	    GLES20.glAttachShader(mFrameBufferProgram, frameBufferFagmentShader);
+	    GLES20.glLinkProgram(mFrameBufferProgram);
+	    int fbPositionHandle = GLES20.glGetAttribLocation(mFrameBufferProgram, "aPosition");
+	    int fbNormalHandle = GLES20.glGetAttribLocation(mFrameBufferProgram, "aNormal");
+	    int fbTextureCoordHandle = GLES20.glGetAttribLocation(mFrameBufferProgram, "aTextureCoord");
+	    int fbuMVPMatrixHandle = GLES20.glGetUniformLocation(mFrameBufferProgram, "uMVPMatrix");
+	    int fbuMMatrixHandle = GLES20.glGetUniformLocation(mFrameBufferProgram, "uMMatrix");
+	    int fbuLightLocationHandle = GLES20.glGetUniformLocation(mFrameBufferProgram, "uLightLocation");
+	    int fbuTextureHandle = GLES20.glGetUniformLocation(mFrameBufferProgram, "uTexture");
+	    GLES20.glUseProgram(mFrameBufferProgram);
+	    mVertexBuffer.position(0);
+	    GLES20.glVertexAttribPointer(fbPositionHandle, 3, GLES20.GL_FLOAT, false, 3 * 4, mVertexBuffer);
+	    mTexureBuffer.position(0);
+	    GLES20.glVertexAttribPointer(fbTextureCoordHandle, 2, GLES20.GL_FLOAT, false, 2 * 4, mTexureBuffer);
+	    mTexureBuffer.position(0);
+	    GLES20.glVertexAttribPointer(fbNormalHandle, 3, GLES20.GL_FLOAT, false, 3 * 4, mNormalBuffer);
+	    GLES20.glEnableVertexAttribArray(fbPositionHandle);
+	    GLES20.glEnableVertexAttribArray(fbTextureCoordHandle);
+	    GLES20.glEnableVertexAttribArray(fbNormalHandle);
+	    GLES20.glUniform3f(fbuLightLocationHandle, 0, 10, 10);
+	    GLES20.glUniformMatrix4fv(fbuMVPMatrixHandle, 1, false, mvpMatrix, 0);
+	    GLES20.glUniformMatrix4fv(fbuMMatrixHandle, 1, false, mMatrix, 0);
+	    GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mLoadedTextureId);
+	    GLES20.glUniform1i(fbuTextureHandle, 0);
+	    GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, mVertexCount);
+
+	    /*================================render2window================================*/
+	    // 切换到窗口系统的缓冲区
+	    GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
+	    GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
+	    int vertexShader = loaderShader(GLES20.GL_VERTEX_SHADER, windowVertexShaderCode);
+	    int fragmentShader = loaderShader(GLES20.GL_FRAGMENT_SHADER, windowFragmentShaderCode);
+	    mWindowProgram = GLES20.glCreateProgram();
+	    GLES20.glAttachShader(mWindowProgram, vertexShader);
+	    GLES20.glAttachShader(mWindowProgram, fragmentShader);
+	    GLES20.glLinkProgram(mWindowProgram);
+	    GLES20.glUseProgram(mWindowProgram);
+	    int positionHandle = GLES20.glGetAttribLocation(mWindowProgram, "aPosition");
+	    int textureCoordHandle = GLES20.glGetAttribLocation(mWindowProgram, "aTextureCoord");
+	    int textureHandle = GLES20.glGetUniformLocation(mWindowProgram, "uTexture");
+	    mSqureBuffer.position(0);
+	    GLES20.glVertexAttribPointer(positionHandle, 2, GLES20.GL_FLOAT, false, (2+2) * 4, mSqureBuffer);
+	    mSqureBuffer.position(2);
+	    GLES20.glVertexAttribPointer(textureCoordHandle, 2, GLES20.GL_FLOAT, false, (2+2) * 4, mSqureBuffer);
+	    GLES20.glEnableVertexAttribArray(positionHandle);
+	    GLES20.glEnableVertexAttribArray(textureCoordHandle);
+	    GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+	    GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, depthTxtureId);
+	    GLES20.glUniform1i(textureHandle, 0);
+	    GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
+	    GLES20.glDeleteTextures(2, textures, 0);
+	    GLES20.glDeleteFramebuffers(1, framebuffers, 0);
+	}
+	
+	public void draw1(float[] mvpMatrix, float[] mMatrix) {
+	    /*================================render2texture================================*/
+	    // 生成FrameBuffer
+	    int [] framebuffers = new int[1];
+	    GLES20.glGenFramebuffers(1, framebuffers, 0);
+	    int framebufferId = framebuffers[0];
+	    GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, framebufferId);
+	    // 生成Texture
+	    int [] textures = new int[1];
+	    GLES20.glGenTextures(1, textures, 0);
+	    int textureId = textures[0];
+	    GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textureId);
+	    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MIN_FILTER,GLES20.GL_NEAREST);
+	    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D,GLES20.GL_TEXTURE_MAG_FILTER,GLES20.GL_LINEAR);
+	    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_S,GLES20.GL_MIRRORED_REPEAT);
+	    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_T,GLES20.GL_MIRRORED_REPEAT);
+	    GLES20.glTexImage2D(GLES20.GL_TEXTURE_2D, 0, GLES20.GL_RGB, ShapeView.sScreenWidth, ShapeView.sScreenHeight, 0, GLES20.GL_RGB, GLES20.GL_UNSIGNED_SHORT_5_6_5, null);
+	    // 生成Renderbuffer
+	    int [] renderbuffers = new int[1];
+	    GLES20.glGenRenderbuffers(1, renderbuffers, 0);
+	    int renderId = renderbuffers[0];
+	    GLES20.glBindRenderbuffer(GLES20.GL_RENDERBUFFER, renderId);
+	    GLES20.glRenderbufferStorage(GLES20.GL_RENDERBUFFER, GLES20.GL_DEPTH_COMPONENT16, ShapeView.sScreenWidth, ShapeView.sScreenHeight);  
+	    // 关联FrameBuffer和Texture、RenderBuffer
+	    GLES20.glFramebufferTexture2D(GLES20.GL_FRAMEBUFFER, GLES20.GL_COLOR_ATTACHMENT0, GLES20.GL_TEXTURE_2D, textureId, 0);
+	    GLES20.glFramebufferRenderbuffer(GLES20.GL_FRAMEBUFFER, GLES20.GL_DEPTH_ATTACHMENT, GLES20.GL_RENDERBUFFER, renderId);
+	    if(GLES20.glCheckFramebufferStatus(GLES20.GL_FRAMEBUFFER) != GLES20.GL_FRAMEBUFFER_COMPLETE) {
+	        Log.i(TAG, "Framebuffer error");
+	    }
+	    GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
+	    int frameBufferVertexShader = loaderShader(GLES20.GL_VERTEX_SHADER, vertexShaderCode);
+	    int frameBufferFagmentShader = loaderShader(GLES20.GL_FRAGMENT_SHADER, fragmentShaderCode);
+	    mFrameBufferProgram = GLES20.glCreateProgram();
+	    GLES20.glAttachShader(mFrameBufferProgram, frameBufferVertexShader);
+	    GLES20.glAttachShader(mFrameBufferProgram, frameBufferFagmentShader);
+	    GLES20.glLinkProgram(mFrameBufferProgram);
+	    int fbPositionHandle = GLES20.glGetAttribLocation(mFrameBufferProgram, "aPosition");
+	    int fbNormalHandle = GLES20.glGetAttribLocation(mFrameBufferProgram, "aNormal");
+	    int fbTextureCoordHandle = GLES20.glGetAttribLocation(mFrameBufferProgram, "aTextureCoord");
+	    int fbuMVPMatrixHandle = GLES20.glGetUniformLocation(mFrameBufferProgram, "uMVPMatrix");
+	    int fbuMMatrixHandle = GLES20.glGetUniformLocation(mFrameBufferProgram, "uMMatrix");
+	    int fbuLightLocationHandle = GLES20.glGetUniformLocation(mFrameBufferProgram, "uLightLocation");
+	    int fbuTextureHandle = GLES20.glGetUniformLocation(mFrameBufferProgram, "uTexture");
+	    GLES20.glUseProgram(mFrameBufferProgram);
+	    mVertexBuffer.position(0);
+	    GLES20.glVertexAttribPointer(fbPositionHandle, 3, GLES20.GL_FLOAT, false, 3 * 4, mVertexBuffer);
+	    mTexureBuffer.position(0);
+	    GLES20.glVertexAttribPointer(fbTextureCoordHandle, 2, GLES20.GL_FLOAT, false, 2 * 4, mTexureBuffer);
+	    mTexureBuffer.position(0);
+	    GLES20.glVertexAttribPointer(fbNormalHandle, 3, GLES20.GL_FLOAT, false, 3 * 4, mNormalBuffer);
+	    GLES20.glEnableVertexAttribArray(fbPositionHandle);
+	    GLES20.glEnableVertexAttribArray(fbTextureCoordHandle);
+	    GLES20.glEnableVertexAttribArray(fbNormalHandle);
+	    GLES20.glUniform3f(fbuLightLocationHandle, 0, 10, 10);
+	    GLES20.glUniformMatrix4fv(fbuMVPMatrixHandle, 1, false, mvpMatrix, 0);
+	    GLES20.glUniformMatrix4fv(fbuMMatrixHandle, 1, false, mMatrix, 0);
+	    GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mLoadedTextureId);
+	    GLES20.glUniform1i(fbuTextureHandle, 0);
+	    GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, mVertexCount);
+
+	    /*================================render2window================================*/
+	    // 切换到窗口系统的缓冲区
+	    GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
+	    GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
+	    int vertexShader = loaderShader(GLES20.GL_VERTEX_SHADER, windowVertexShaderCode);
+	    int fragmentShader = loaderShader(GLES20.GL_FRAGMENT_SHADER, windowFragmentShaderCode);
+	    mWindowProgram = GLES20.glCreateProgram();
+	    GLES20.glAttachShader(mWindowProgram, vertexShader);
+	    GLES20.glAttachShader(mWindowProgram, fragmentShader);
+	    GLES20.glLinkProgram(mWindowProgram);
+	    GLES20.glUseProgram(mWindowProgram);
+	    int positionHandle = GLES20.glGetAttribLocation(mWindowProgram, "aPosition");
+	    int textureCoordHandle = GLES20.glGetAttribLocation(mWindowProgram, "aTextureCoord");
+	    int textureHandle = GLES20.glGetUniformLocation(mWindowProgram, "uTexture");
+	    mSqureBuffer.position(0);
+	    GLES20.glVertexAttribPointer(positionHandle, 2, GLES20.GL_FLOAT, false, (2+2) * 4, mSqureBuffer);
+	    mSqureBuffer.position(2);
+	    GLES20.glVertexAttribPointer(textureCoordHandle, 2, GLES20.GL_FLOAT, false, (2+2) * 4, mSqureBuffer);
+	    GLES20.glEnableVertexAttribArray(positionHandle);
+	    GLES20.glEnableVertexAttribArray(textureCoordHandle);
+	    GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+	    GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textureId);
+	    GLES20.glUniform1i(textureHandle, 0);
+	    GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
+	    GLES20.glDeleteTextures(1, textures, 0);
+	    GLES20.glDeleteFramebuffers(1, framebuffers, 0);
+	    GLES20.glDeleteRenderbuffers(1, renderbuffers, 0);
 	}
 	
 	private int loaderShader(int type, String shaderCode) {
@@ -235,6 +328,4 @@ public class Shape {
 			+ "gl_FragColor = (vDiffuse + vec4(0.6,0.6,0.6,1))*texture2D(uTexture, vec2(vTextureCoord.s,vTextureCoord.t));"
 			+ "}";
 }
-
-
 
