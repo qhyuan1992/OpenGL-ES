@@ -4,6 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/NativeGLESViewWithEGL.iml" filepath="$PROJECT_DIR$/NativeGLESViewWithEGL.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/glm/app_glm.iml" filepath="$PROJECT_DIR$/app/glm/app_glm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/glm/details/app_glm_details.iml" filepath="$PROJECT_DIR$/app/glm/details/app_glm_details.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/glm/gtc/app_glm_gtc.iml" filepath="$PROJECT_DIR$/app/glm/gtc/app_glm_gtc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/glm/gtx/app_glm_gtx.iml" filepath="$PROJECT_DIR$/app/glm/gtx/app_glm_gtx.iml" />
     </modules>
   </component>
 </project>

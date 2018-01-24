@@ -15,10 +15,12 @@ public:
     GLint mAColorHandle;
     GLfloat* mVertexArray;
     GLfloat* mColorArray;
+    GLint mLoadedTextureId;
     Shape();
     void initVertex();
     void initGL(const char * vertexShaderCode, const char* fragmentShaderCode);
     void draw(float mvpMatrix[]);
+    void initTexture(int res);
     virtual ~Shape();
 
 };
