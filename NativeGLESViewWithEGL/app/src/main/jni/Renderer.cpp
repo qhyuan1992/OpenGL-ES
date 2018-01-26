@@ -26,8 +26,8 @@ const char * fragmentShaderCode = "precision mediump float;\n"
         "varying  vec4 vColor;\n"
         "void main()\n"
         "{\n"
-            "gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);\n"
-        //"    gl_FragColor = vColor;\n"
+            //"gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);\n"
+        "    gl_FragColor = vColor;\n"
         "}";
 
 
@@ -145,6 +145,29 @@ void Renderer::initEGL() {
         LOGI(1, "------EGL-FALSE");
         return ;
     }
+    const unsigned char * version ;
+
+    version = (const unsigned char *)glGetString(GL_VERSION);
+    LOGI (1, "My OpenGL version is %s\n", version);
+
+    version = (const unsigned char *)glGetString(GL_VENDOR);
+    LOGI (1, "My OpenGL vendor is %s\n", version);
+
+    version = (const unsigned char *)glGetString(GL_RENDERER);
+    LOGI (1, "My OpenGL GL_RENDERER is %s\n", version);
+
+/*
+    glGetIntegerv(GL_NUM_EXTENSIONS, &n_extensions);
+    for (int n_extension = 0;
+         n_extension < n_extensions;
+         ++n_extension) {   const GLubyte*
+                extension;
+        extension = glGetStringi(GL_EXTENSIONS, n_extension);
+        ShowText("Extension: %s\n", extension);
+    }
+    */
+   // version = (const unsigned char *)glGetString(GL_EXTENSIONS);
+  //  LOGI (1, "My OpenGL GL_EXTENSIONS is %s\n", version);
 
     eglQuerySurface(display, surface, EGL_WIDTH, &width);
     eglQuerySurface(display, surface, EGL_HEIGHT, &height);

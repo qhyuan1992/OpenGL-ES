@@ -5,9 +5,14 @@
 #include "Shape.h"
 #include "GLUtil.h"
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <memory.h>
+
 #define  TAG  "TestGL"
 void Shape::initVertex(){
-
+#if 1
     mVertexArray = new GLfloat[3*8];
     mColorArray = new GLfloat[8*4];
      int j = 0, k = 0;
@@ -29,6 +34,60 @@ void Shape::initVertex(){
          mColorArray[k++] = 0;
          mColorArray[k++] = 0;
      }
+#else
+    mVertexArray = new GLfloat[3*4];
+    mTextureArray = new GLfloat[3*4];
+
+    int j = 0, k = 0;
+
+    mVertexArray[j++] =  -1;
+    mVertexArray[j++] =  -1;
+    mVertexArray[j++] = 0;
+
+    mVertexArray[j++] =  1;
+    mVertexArray[j++] =  -1;
+    mVertexArray[j++] = 0;
+
+    mVertexArray[j++] =  -1;
+    mVertexArray[j++] =  1;
+    mVertexArray[j++] = 0;
+
+    mVertexArray[j++] =  -1;
+    mVertexArray[j++] =  1;
+    mVertexArray[j++] = 0;
+
+  //  mColorArray[k++] = 1;
+   // mColorArray[k++] = 1;
+   // mColorArray[k++] = 1;
+  //  mColorArray[k++] = 0;
+
+    mTextureArray[k++] =  0;
+    mTextureArray[k++] =  1;
+    mTextureArray[k++] = 0;
+
+    mTextureArray[k++] =  1;
+    mTextureArray[k++] =  1;
+    mTextureArray[k++] = 0;
+
+    mTextureArray[k++] =  1;
+    mTextureArray[k++] =  0;
+    mTextureArray[k++] = 0;
+
+    mTextureArray[k++] =  0;
+    mTextureArray[k++] =  0;
+    mTextureArray[k++] = 0;
+
+  //  mCubeBuffer = ByteBuffer.allocateDirect(coord.length * 4)
+    //        .order(ByteOrder.nativeOrder())
+   //         .asFloatBuffer();
+   // mCubeBuffer.put(coord).position(0);
+
+  //  mTextureCubeBuffer = ByteBuffer.allocateDirect(texture_coord.length * 4)
+   //         .order(ByteOrder.nativeOrder())
+   //         .asFloatBuffer();
+   // mTextureCubeBuffer.put(texture_coord).position(0);
+
+#endif
 }
 
 
@@ -37,7 +96,7 @@ void Shape::initGL(const char *vertexShaderCode, const char *fragmentShaderCode)
     mUMVPMatrixHandle = glGetUniformLocation(mProgram, "uMVPMatrix");
     mAPositionHandle = glGetAttribLocation(mProgram, "aPosition");
     mAColorHandle = glGetAttribLocation(mProgram, "aColor");
-    initTexture( 1 );
+  //  initTexture( 1 );
 }
  void Shape::initTexture(int res) {
      GLuint  textures;
@@ -51,11 +110,12 @@ void Shape::initGL(const char *vertexShaderCode, const char *fragmentShaderCode)
    // Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), res);
     //texImage2D(GL_TEXTURE_2D, 0, bitmap, 0);
     //bitmap.recycle();
-     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1024, 768, 0, GL_RGBA, GL_UNSIGNED_SHORT_5_6_5, NULL);
-
+     unsigned int outWidth;
+     unsigned int outHeight;
+     //unsigned char * data = loadBMPRaw("/data/old.bmp" , outWidth , outHeight, false);
+     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, outWidth, outHeight, 0, GL_RGBA, GL_UNSIGNED_SHORT_5_6_5, 0);
      glBindTexture(GL_TEXTURE_2D, 0);
 }
-
 
 void Shape::draw(float mvpMatrix[]) {
 
@@ -133,9 +193,9 @@ void Shape::draw(float mvpMatrix[]) {
 
     glEnableVertexAttribArray(mAPositionHandle);
     glEnableVertexAttribArray(mAColorHandle);
-    glBindTexture( GL_TEXTURE_2D, mLoadedTextureId);
+    glBindTexture( GL_TEXTURE_2D, renderedTexture);
     // 绘制图元
-    glDrawArrays(GL_TRIANGLE_FAN, 0, 8);
+    glDrawArrays(GL_TRIANGLES, 0, 8);
 
 
     /*================================render2window================================*/
@@ -166,12 +226,12 @@ void Shape::draw(float mvpMatrix[]) {
     glVertexAttribPointer(mAColorHandle, 4, GL_FLOAT, GL_FALSE, 4*4, mColorArray);
 
     glEnableVertexAttribArray(mAPositionHandle);
-    glEnableVertexAttribArray(mAColorHandle);
+  glEnableVertexAttribArray(mAColorHandle);
     //glBindTexture( GL_TEXTURE_2D, mLoadedTextureId);
     glBindTexture(GL_TEXTURE_2D, renderedTexture);
     glActiveTexture(GL_TEXTURE0);
     // 绘制图元
-    glDrawArrays(GL_TRIANGLE_FAN, 0, 8);
+    glDrawArrays(GL_TRIANGLES, 0, 8);
 
      glDeleteTextures(1, &renderedTexture);
      glDeleteFramebuffers(1, &FramebufferName);
@@ -183,4 +243,73 @@ Shape::Shape() {
 Shape::~Shape() {
     delete [] mVertexArray;
     delete [] mColorArray;
+}
+
+
+unsigned char * Shape::loadBMPRaw(const char * imagepath, unsigned int& outWidth, unsigned int& outHeight, bool flipY){
+    LOGI(1,"Reading image %s\n", imagepath);
+    outWidth = -1;
+    outHeight = -1;
+    // Data read from the header of the BMP file
+    unsigned char header[54];
+    unsigned int dataPos;
+    unsigned int imageSize;
+    // Actual RGB data
+    unsigned char * data;
+
+    // Open the file
+    FILE * file = fopen(imagepath,"rb");
+    if (!file)							    {LOGI(1,"Image could not be opened\n"); return NULL;}
+
+    // Read the header, i.e. the 54 first bytes
+
+    // If less than 54 byes are read, problem
+    if ( fread(header, 1, 54, file)!=54 ){
+        LOGI(1,"Not a correct BMP file\n");
+        return NULL;
+    }
+    // A BMP files always begins with "BM"
+    if ( header[0]!='B' || header[1]!='M' ){
+        LOGI(1,"Not a correct BMP file\n");
+        return NULL;
+    }
+    // Make sure this is a 24bpp file
+    if ( *(int*)&(header[0x1E])!=0  )         {LOGI(1,"Not a correct BMP file\n");    return NULL;}
+    if ( *(int*)&(header[0x1C])!=24 )         {LOGI(1,"Not a correct BMP file\n");    return NULL;}
+
+    // Read the information about the image
+    dataPos    = *(int*)&(header[0x0A]);
+    imageSize  = *(int*)&(header[0x22]);
+    outWidth      = *(int*)&(header[0x12]);
+    outHeight     = *(int*)&(header[0x16]);
+
+    // Some BMP files are misformatted, guess missing information
+    if (imageSize==0)    imageSize=outWidth*outHeight*3; // 3 : one byte for each Red, Green and Blue component
+    if (dataPos==0)      dataPos=54; // The BMP header is done that way
+
+    // Create a buffer
+    data = new unsigned char [imageSize];
+
+    // Read the actual data from the file into the buffer
+    fread(data,1,imageSize,file);
+
+    // Everything is in memory now, the file wan be closed
+    fclose (file);
+
+    if (flipY){
+        // swap y-axis
+        unsigned char * tmpBuffer = new unsigned char[outWidth*3];
+        int size = outWidth*3;
+        for (int i=0;i<outHeight/2;i++){
+            // copy row i to tmp
+            memcpy(tmpBuffer,data+outWidth*3*i,size);
+            // copy row h-i-1 to i
+            memcpy(data+outWidth*3*i, data+outWidth*3*(outHeight-i-1), size);
+            // copy tmp to row h-i-1
+            memcpy(data+outWidth*3*(outHeight-i-1),tmpBuffer, size);
+        }
+        delete [] tmpBuffer;
+    }
+
+    return data;
 }

@@ -9,7 +9,7 @@ Renderer * mRenderer;
 
 extern "C" {
 JNIEXPORT void JNICALL
-Java_com_example_weiersyuan_nativeglesviewwithegl_MySurfaceView_nativeStartRender(JNIEnv *env,
+Java_com_example_weiersyuan_nativeglesviewwithegl_MySurfaceView_nativeStartRender(JNIEnv *env,int width, int height, jobject  ptr,
                                                                                   jclass type) {
     mRenderer = new Renderer();
     mRenderer->start();

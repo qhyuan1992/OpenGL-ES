@@ -16,14 +16,16 @@ public:
     GLfloat* mVertexArray;
     GLfloat* mColorArray;
     GLint mLoadedTextureId;
+    GLfloat* mTextureArray;
     Shape();
     void initVertex();
     void initGL(const char * vertexShaderCode, const char* fragmentShaderCode);
     void draw(float mvpMatrix[]);
     void initTexture(int res);
     virtual ~Shape();
+    unsigned char * loadBMPRaw(const char * imagepath, unsigned int& outWidth, unsigned int& outHeight, bool flipY);
 
-};
+    };
 
 
 #endif //NATIVEGLESVIEW_SHAPE_H
