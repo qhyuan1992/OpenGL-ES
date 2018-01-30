@@ -7,6 +7,8 @@
 #include "Shape.h"
 #include "glm/mat4x4.hpp"
 #include "glm/ext.hpp"
+#include "android/bitmap.h"
+
 Shape mShape;
 glm::mat4 projection;
 glm::mat4 view;
@@ -30,7 +32,21 @@ const char * fragmentShaderCode = "precision mediump float;\n"
         "    gl_FragColor = vColor;\n"
         "}";
 
+const char * windowVertexShaderCode = "\n"
+                                        "attribute vec2 aPosition;\n"
+                                        "attribute vec2 aTextureCoord;\n"
+                                        "varying vec2 vTextureCoord;\n"
+                                        "void main(){\n"
+                                        "gl_Position =  vec4(aPosition,0,1);\n"
+                                        "vTextureCoord = aTextureCoord;\n"
+                                        "}";
 
+const char * windowFragmentShaderCode = "precision mediump float;\n"
+                                          "uniform sampler2D uTexture;\n"
+                                          "varying vec2 vTextureCoord;\n"
+                                          "void main(){\n"
+                                          "gl_FragColor = texture2D(uTexture, vTextureCoord);\n"
+                                          "}";
 Renderer::Renderer() {
     pthread_mutex_init(&mMutex, NULL);
     pthread_cond_init(&mCondVar, NULL);
@@ -80,7 +96,7 @@ void Renderer::onRenderThreadRun() {
         // 每完成一个事件就wait在这里直到有其他事件唤醒
         pthread_cond_wait(&mCondVar, &mMutex);
 
-        LOGI(1, "-------this mEnumRenderEvent is %d", mEnumRenderEvent);
+       // LOGI(1, "-------this mEnumRenderEvent is %d", mEnumRenderEvent);
         switch (mEnumRenderEvent) {
             case RE_SURFACE_CHANGED:
                 LOGI(1, "-------case RE_SURFACE_CHANGED");
@@ -138,7 +154,7 @@ void Renderer::initEGL() {
     eglChooseConfig(display, attribs, &config, 1, &numConfigs);
 
     surface = eglCreateWindowSurface(display, config, mWindow, NULL);
-    EGLint attrs[]= {EGL_CONTEXT_CLIENT_VERSION, 2, EGL_NONE};
+    EGLint attrs[]= {EGL_CONTEXT_CLIENT_VERSION, 3, EGL_NONE};
     context = eglCreateContext(display, config, NULL, attrs);
 
     if (eglMakeCurrent(display, surface, surface, context) == EGL_FALSE) {
@@ -177,7 +193,7 @@ void Renderer::initEGL() {
     mContext = context;
     mWidth = width;
     mHeight = height;
-    LOGI(1, "width:%d, height:%d", mWidth, mHeight);
+    LOGI(1, "bmp surface width:%d, height:%d", mWidth, mHeight);
 
 }
 
@@ -201,7 +217,7 @@ void Renderer::terminateDisplay() {
 
 void Renderer::nativeSurfaceCreated() {
 
-    mShape.initGL(vertexShaderCode, fragmentShaderCode);
+    mShape.initGL(windowVertexShaderCode, windowFragmentShaderCode, BMPptr, BMPW, BMPH);
     glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
     glDisable(GL_DEPTH_TEST);
 }
@@ -229,5 +245,9 @@ void Renderer::nativeDraw() {
     mShape.draw(mvp);
 }
 
-
+void Renderer::setBmpPtr( int* ptr ,int w, int h){
+    BMPptr = ptr;
+    BMPW = w;
+    BMPH = h;
+}
 

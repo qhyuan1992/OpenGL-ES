@@ -9,10 +9,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/app/glm" />
-            <option value="$PROJECT_DIR$/app/glm/details" />
-            <option value="$PROJECT_DIR$/app/glm/gtc" />
-            <option value="$PROJECT_DIR$/app/glm/gtx" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

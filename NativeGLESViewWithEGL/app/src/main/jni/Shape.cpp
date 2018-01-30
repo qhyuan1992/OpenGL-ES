@@ -9,10 +9,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <memory.h>
+#include <android/bitmap.h>
+#include <time.h>
 
 #define  TAG  "TestGL"
 void Shape::initVertex(){
-#if 1
+#if 0
     mVertexArray = new GLfloat[3*8];
     mColorArray = new GLfloat[8*4];
      int j = 0, k = 0;
@@ -37,212 +39,257 @@ void Shape::initVertex(){
 #else
     mVertexArray = new GLfloat[3*4];
     mTextureArray = new GLfloat[3*4];
-
+    msquareVertexs = new GLfloat[4*4];
     int j = 0, k = 0;
-
-    mVertexArray[j++] =  -1;
-    mVertexArray[j++] =  -1;
+    mVertexArray[j++] = -1;
+    mVertexArray[j++] = -1;
     mVertexArray[j++] = 0;
 
-    mVertexArray[j++] =  1;
-    mVertexArray[j++] =  -1;
+    mVertexArray[j++] = 1;
+    mVertexArray[j++] = -1;
     mVertexArray[j++] = 0;
 
-    mVertexArray[j++] =  -1;
-    mVertexArray[j++] =  1;
+    mVertexArray[j++] = -1;
+    mVertexArray[j++] = 1;
     mVertexArray[j++] = 0;
 
-    mVertexArray[j++] =  -1;
-    mVertexArray[j++] =  1;
+    mVertexArray[j++] = 1;
+    mVertexArray[j++] = 1;
     mVertexArray[j++] = 0;
 
-  //  mColorArray[k++] = 1;
-   // mColorArray[k++] = 1;
-   // mColorArray[k++] = 1;
-  //  mColorArray[k++] = 0;
-
-    mTextureArray[k++] =  0;
-    mTextureArray[k++] =  1;
+    mTextureArray[k++] = 0;
+    mTextureArray[k++] = 1;
     mTextureArray[k++] = 0;
 
-    mTextureArray[k++] =  1;
-    mTextureArray[k++] =  1;
+    mTextureArray[k++] = 0;
+    mTextureArray[k++] = 0;
     mTextureArray[k++] = 0;
 
-    mTextureArray[k++] =  1;
-    mTextureArray[k++] =  0;
+    mTextureArray[k++] = 1;
+    mTextureArray[k++] = 1;
     mTextureArray[k++] = 0;
 
-    mTextureArray[k++] =  0;
-    mTextureArray[k++] =  0;
+    mTextureArray[k++] = 1;
+    mTextureArray[k++] = 0;
     mTextureArray[k++] = 0;
 
-  //  mCubeBuffer = ByteBuffer.allocateDirect(coord.length * 4)
-    //        .order(ByteOrder.nativeOrder())
-   //         .asFloatBuffer();
-   // mCubeBuffer.put(coord).position(0);
 
-  //  mTextureCubeBuffer = ByteBuffer.allocateDirect(texture_coord.length * 4)
-   //         .order(ByteOrder.nativeOrder())
-   //         .asFloatBuffer();
-   // mTextureCubeBuffer.put(texture_coord).position(0);
+    // 初始化顶点坐标
+    k = 0;
+    msquareVertexs[k++] = -1;
+    msquareVertexs[k++] = -1;
+    msquareVertexs[k++] = 0;
+    msquareVertexs[k++] = 1;
+    msquareVertexs[k++] = -1;
+    msquareVertexs[k++] = 1;
+    msquareVertexs[k++] = 0;
+    msquareVertexs[k++] = 0;
+    msquareVertexs[k++] = 1;
+    msquareVertexs[k++] = -1;
+    msquareVertexs[k++] = 1;
+    msquareVertexs[k++] = 1;
+    msquareVertexs[k++] = 1;
+    msquareVertexs[k++] = 1;
+    msquareVertexs[k++] = 1;
+    msquareVertexs[k++] = 0;
 
+
+/*
+    ByteBuffer vbb0 = ByteBuffer.allocateDirect(squareVertexs.length * 4);
+    vbb0.order(ByteOrder.nativeOrder());
+    mSqureBuffer = vbb0.asFloatBuffer();
+    mSqureBuffer.put(squareVertexs);
+    mSqureBuffer.position(0);
+
+    mVertexCount = vertexArray.length / 3;
+    ByteBuffer vbb = ByteBuffer.allocateDirect(vertexArray.length * 4);
+    vbb.order(ByteOrder.nativeOrder());
+    mVertexBuffer = vbb.asFloatBuffer();
+    mVertexBuffer.put(vertexArray);
+    mVertexBuffer.position(0);
+
+    ByteBuffer vbb2 = ByteBuffer.allocateDirect(texures.length * 4);
+    vbb2.order(ByteOrder.nativeOrder());
+    mTexureBuffer = vbb2.asFloatBuffer();
+    mTexureBuffer.put(texures);
+    mTexureBuffer.position(0);
+*/
 #endif
 }
 
 
-void Shape::initGL(const char *vertexShaderCode, const char *fragmentShaderCode) {
+void Shape::initGL(const char *vertexShaderCode, const char *fragmentShaderCode, int * ptr, int w, int h) {
     mProgram = GLUtil::createProgram(vertexShaderCode, fragmentShaderCode);
-    mUMVPMatrixHandle = glGetUniformLocation(mProgram, "uMVPMatrix");
-    mAPositionHandle = glGetAttribLocation(mProgram, "aPosition");
-    mAColorHandle = glGetAttribLocation(mProgram, "aColor");
-  //  initTexture( 1 );
+   // mUMVPMatrixHandle = glGetUniformLocation(mProgram, "uMVPMatrix");
+  //  mAPositionHandle = glGetAttribLocation(mProgram, "aPosition");
+   // mAColorHandle = glGetAttribLocation(mProgram, "aColor");
+    initTextureBMP( ptr, w, h );
+    mFramebufferName = 0;
+    glGenFramebuffers(1, &mFramebufferName);
+    mtexture = 0;
+    glGenTextures(1, &mtexture);
+    mColorTexture = 0;
+    glGenTextures(1, &mColorTexture);
 }
- void Shape::initTexture(int res) {
-     GLuint  textures;
-    glGenTextures(1, &textures);
-     mLoadedTextureId = textures;
-    glBindTexture(GL_TEXTURE_2D, mLoadedTextureId);
+ void Shape::initTextureBMP(int* ptr,int w, int h) {
+
+     outWidth = w;
+     outHeight = h;
+     bmpPtr = ptr;
+     readOut = (unsigned char *) malloc (outWidth * outHeight * 4);
+     unsigned char * readIn =  (unsigned char *)(bmpPtr);
+             LOGI(TAG, "bmp in = 0x%x  0x%x w = %d  h = %d", *readIn, *(readIn+1), w, h);
+}
+
+void Shape::draw1(float mvpMatrix[]) {
+
+    int fbPositionHandle =  glGetAttribLocation(mProgram, "aPosition");
+    int fbTextureCoordHandle =  glGetAttribLocation(mProgram, "aTextureCoord");
+    int fbuTextureHandle =  glGetUniformLocation(mProgram, "uTexture");
+    glUseProgram(mProgram);
+    // 将顶点数据传递到管线
+    //glUniformMatrix4fv(fbPositionHandle, 1, GL_FALSE, mvpMatrix);
+    GLuint  tempTeture = 0;
+    glGenTextures(1, &tempTeture);
+    glBindTexture(GL_TEXTURE_2D, tempTeture);
+
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_NEAREST);
     glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,GL_MIRRORED_REPEAT);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,GL_MIRRORED_REPEAT);
-   // Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), res);
-    //texImage2D(GL_TEXTURE_2D, 0, bitmap, 0);
-    //bitmap.recycle();
-     unsigned int outWidth;
-     unsigned int outHeight;
-     //unsigned char * data = loadBMPRaw("/data/old.bmp" , outWidth , outHeight, false);
-     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, outWidth, outHeight, 0, GL_RGBA, GL_UNSIGNED_SHORT_5_6_5, 0);
-     glBindTexture(GL_TEXTURE_2D, 0);
-}
 
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, outWidth, outHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, (unsigned char *)readOut);
+
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    glVertexAttribPointer(fbPositionHandle, 3, GL_FLOAT, GL_FALSE, 3 * 4, mVertexArray);
+    glEnableVertexAttribArray(fbPositionHandle);
+    glVertexAttribPointer(fbTextureCoordHandle, 3, GL_FLOAT, GL_FALSE, 3 * 4, mTextureArray);
+    glEnableVertexAttribArray(fbTextureCoordHandle);
+
+    //glVertexAttribPointer(fbTextureCoordHandle, 2, GL_FLOAT, GL_FALSE, 4 * 4, msquareVertexs);
+    //glEnableVertexAttribArray(fbTextureCoordHandle);
+    //msquareVertexs
+
+    glBindTexture(GL_TEXTURE_2D, tempTeture);
+    glUniform1i(fbuTextureHandle, 0);
+    // 绘制图元
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+
+}
 void Shape::draw(float mvpMatrix[]) {
 
-    GLuint FramebufferName = 0;
-    glGenFramebuffers(1, &FramebufferName);
-    glBindFramebuffer(GL_FRAMEBUFFER, FramebufferName);
+    if (bmpPtr == NULL) {
+        LOGI(TAG, "bmp draw null return");
+    return;
+}
+   // draw1(mvpMatrix);
+   // return;
+    static double before = now_ms();
+   // LOGI(1, "4K bmp before process time = %lf", before);
+
+    mLoadedTextureId = mtexture;
+    glBindTexture(GL_TEXTURE_2D, mLoadedTextureId);
+
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+    glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,GL_MIRRORED_REPEAT);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,GL_MIRRORED_REPEAT);
+
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, outWidth, outHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, (unsigned char *)bmpPtr);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    glBindFramebuffer(GL_FRAMEBUFFER, mFramebufferName);
 
 // The texture we're going to render to
-    GLuint renderedTexture;
-    glGenTextures(1, &renderedTexture);
+
 // "Bind" the newly created texture : all future texture functions will modify this texture
-    glBindTexture(GL_TEXTURE_2D, renderedTexture);
+     glBindTexture(GL_TEXTURE_2D, mColorTexture);
      glTexParameterf( GL_TEXTURE_2D,  GL_TEXTURE_MIN_FILTER, GL_NEAREST);
      glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
      glTexParameterf( GL_TEXTURE_2D,  GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
      glTexParameterf( GL_TEXTURE_2D,  GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
-    // glTexImage2D( GL_TEXTURE_2D, 0,  GL_RGB, ShapeView.sScreenWidth, ShapeView.sScreenHeight, 0,  GL_RGB,  GL_UNSIGNED_SHORT_5_6_5, null);
 
-    //mLoadedTextureId = renderedTexture;
-// Give an empty image to OpenGL ( the last "0" )
-    glTexImage2D(GL_TEXTURE_2D, 0,GL_RGB, 1024, 768, 0,GL_RGB, GL_UNSIGNED_BYTE, 0);
-    glBindTexture(GL_TEXTURE_2D, 0);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, outWidth, outHeight, 0,GL_RGBA, GL_UNSIGNED_BYTE, 0);
 
-    // The renderbuffers buffer
-    GLuint renderbuffers;
-    glGenRenderbuffers(1, &renderbuffers);
-    glBindRenderbuffer(GL_RENDERBUFFER, renderbuffers);
-    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, 1024, 768);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, renderbuffers);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, mColorTexture, 0);
 
-    /*================================render2texture================================*/
-
-    // 关联FrameBuffer和Texture、RenderBuffer
-    glFramebufferTexture2D( GL_FRAMEBUFFER,  GL_COLOR_ATTACHMENT0,  GL_TEXTURE_2D, renderedTexture, 0);
-     glFramebufferRenderbuffer( GL_FRAMEBUFFER,  GL_DEPTH_ATTACHMENT,  GL_RENDERBUFFER, renderbuffers);
     if( glCheckFramebufferStatus( GL_FRAMEBUFFER) !=  GL_FRAMEBUFFER_COMPLETE) {
         LOGI(TAG, "Framebuffer error");
     }
      glClear( GL_DEPTH_BUFFER_BIT |  GL_COLOR_BUFFER_BIT);
-    //int frameBufferVertexShader = glloaderShader( GL_VERTEX_SHADER, vertexShaderCode);
-    //int frameBufferFagmentShader = loaderShader( GL_FRAGMENT_SHADER, fragmentShaderCode);
-   // mProgram =  glCreateProgram();
-    // glAttachShader(mFrameBufferProgram, frameBufferVertexShader);
-    // glAttachShader(mFrameBufferProgram, frameBufferFagmentShader);
-    // glLinkProgram(mFrameBufferProgram);
-   // int fbPositionHandle =  glGetAttribLocation(mFrameBufferProgram, "aPosition");
-   // int fbNormalHandle =  glGetAttribLocation(mFrameBufferProgram, "aNormal");
-   // int fbTextureCoordHandle =  glGetAttribLocation(mFrameBufferProgram, "aTextureCoord");
-   // int fbuMVPMatrixHandle =  glGetUniformLocation(mFrameBufferProgram, "uMVPMatrix");
-   // int fbuMMatrixHandle =  glGetUniformLocation(mFrameBufferProgram, "uMMatrix");
-   // int fbuLightLocationHandle =  glGetUniformLocation(mFrameBufferProgram, "uLightLocation");
-   // int fbuTextureHandle =  glGetUniformLocation(mFrameBufferProgram, "uTexture");
-   //  glUseProgram(mFrameBufferProgram);
-   // mVertexBuffer.position(0);
-    // glVertexAttribPointer(fbPositionHandle, 3,  GL_FLOAT, false, 3 * 4, mVertexBuffer);
-   // mTexureBuffer.position(0);
-   //  glVertexAttribPointer(fbTextureCoordHandle, 2,  GL_FLOAT, false, 2 * 4, mTexureBuffer);
-  //  mTexureBuffer.position(0);
-    // glVertexAttribPointer(fbNormalHandle, 3,  GL_FLOAT, false, 3 * 4, mNormalBuffer);
-   //  glEnableVertexAttribArray(fbPositionHandle);
-   //  glEnableVertexAttribArray(fbTextureCoordHandle);
-   //  glEnableVertexAttribArray(fbNormalHandle);
-   //  glUniform3f(fbuLightLocationHandle, 0, 10, 10);
-    // glUniformMatrix4fv(fbuMVPMatrixHandle, 1, false, mvpMatrix, 0);
-   //  glUniformMatrix4fv(fbuMMatrixHandle, 1, false, mMatrix, 0);
-    // glBindTexture( GL_TEXTURE_2D, mLoadedTextureId);
-    // glUniform1i(fbuTextureHandle, 0);
-   //  glDrawArrays( GL_TRIANGLES, 0, mVertexCount);
+
+    int fbPositionHandle =  glGetAttribLocation(mProgram, "aPosition");
+    int fbTextureCoordHandle =  glGetAttribLocation(mProgram, "aTextureCoord");
+    int fbuTextureHandle =  glGetUniformLocation(mProgram, "uTexture");
+    //mUMVPMatrixHandle = glGetUniformLocation(mProgram, "uMVPMatrix");
     glUseProgram(mProgram);
-    // 将顶点数据传递到管线，顶点着色器
-    glUniformMatrix4fv(mUMVPMatrixHandle, 1, GL_FALSE, mvpMatrix);
-    glVertexAttribPointer(mAPositionHandle, 3, GL_FLOAT, GL_FALSE, 3 * 4, mVertexArray);
-    // 将顶点颜色传递到管线，顶点着色器
-    glVertexAttribPointer(mAColorHandle, 4, GL_FLOAT, GL_FALSE, 4*4, mColorArray);
 
-    glEnableVertexAttribArray(mAPositionHandle);
-    glEnableVertexAttribArray(mAColorHandle);
-    glBindTexture( GL_TEXTURE_2D, renderedTexture);
+    // 将顶点数据传递到管线
+    //glUniformMatrix4fv(mUMVPMatrixHandle, 1, GL_FALSE, mvpMatrix);
+
+    glVertexAttribPointer(fbPositionHandle, 3, GL_FLOAT, GL_FALSE, 3 * 4, mVertexArray);
+    glEnableVertexAttribArray(fbPositionHandle);
+    glVertexAttribPointer(fbTextureCoordHandle, 3, GL_FLOAT, GL_FALSE, 3 * 4, mTextureArray);
+    glEnableVertexAttribArray(fbTextureCoordHandle);
+
+    //glVertexAttribPointer(fbTextureCoordHandle, 2, GL_FLOAT, GL_FALSE, 4 * 4, msquareVertexs);
+    //glEnableVertexAttribArray(fbTextureCoordHandle);
+    //msquareVertexs
+
+    glBindTexture(GL_TEXTURE_2D, mLoadedTextureId);
+    glUniform1i(fbuTextureHandle, 0);
+    glActiveTexture(GL_TEXTURE0);
     // 绘制图元
-    glDrawArrays(GL_TRIANGLES, 0, 8);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    static double beforeRead = now_ms();
+    double delta1 = beforeRead - before;
+    LOGI(1, "4K bmp before read time = %lf", delta1);
+    glReadPixels(0,0, outWidth-1, outHeight-1, GL_RGBA, GL_UNSIGNED_BYTE, (void *)readOut);
+   // LOGI(TAG, "bmp out = 0x%x  0x%x w = %d  h = %d", *readOut, *(readOut+1), outWidth, outHeight);
+    static double after = now_ms();
+    //LOGI(1, "4K bmp after process time = %lf", after);
+    // glDeleteRenderbuffers(1,&renderedTexture);
+    double delta = after - before;
+    LOGI(1, "4K bmp process time = %lf", delta);
+     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    draw1(mvpMatrix);
 
-
+#if 0//render_to_window
     /*================================render2window================================*/
     // 切换到窗口系统的缓冲区
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+#if 0
     glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-    //int vertexShader = loaderShader( GL_VERTEX_SHADER, windowVertexShaderCode);
-    //int fragmentShader = loaderShader( GL_FRAGMENT_SHADER, windowFragmentShaderCode);
-   // mWindowProgram =  glCreateProgram();
-   //  glAttachShader(mWindowProgram, vertexShader);
-   //  glAttachShader(mWindowProgram, fragmentShader);
-   //  glLinkProgram(mWindowProgram);
-  //   glUseProgram(mWindowProgram);
-    //int positionHandle =  glGetAttribLocation(mWindowProgram, "aPosition");
-   // int textureCoordHandle =  glGetAttribLocation(mWindowProgram, "aTextureCoord");
-   // int textureHandle =  glGetUniformLocation(mWindowProgram, "uTexture");
-   // mSqureBuffer.position(0);
-   //  glVertexAttribPointer(positionHandle, 2,  GL_FLOAT, false, (2+2) * 4, mSqureBuffer);
-   // mSqureBuffer.position(2);
-   //  glVertexAttribPointer(textureCoordHandle, 2,  GL_FLOAT, false, (2+2) * 4, mSqureBuffer);
-   //  glEnableVertexAttribArray(positionHandle);
-  //   glEnableVertexAttribArray(textureCoordHandle);
     glUseProgram(mProgram);
-    // 将顶点数据传递到管线，顶点着色器
-    glUniformMatrix4fv(mUMVPMatrixHandle, 1, GL_FALSE, mvpMatrix);
-    glVertexAttribPointer(mAPositionHandle, 3, GL_FLOAT, GL_FALSE, 3 * 4, mVertexArray);
-    // 将顶点颜色传递到管线，顶点着色器
-    glVertexAttribPointer(mAColorHandle, 4, GL_FLOAT, GL_FALSE, 4*4, mColorArray);
 
-    glEnableVertexAttribArray(mAPositionHandle);
-  glEnableVertexAttribArray(mAColorHandle);
-    //glBindTexture( GL_TEXTURE_2D, mLoadedTextureId);
-    glBindTexture(GL_TEXTURE_2D, renderedTexture);
+    glVertexAttribPointer(fbPositionHandle, 3, GL_FLOAT, GL_FALSE, 3 * 4, mVertexArray);
+    glEnableVertexAttribArray(fbPositionHandle);
+   glVertexAttribPointer(fbTextureCoordHandle, 3, GL_FLOAT, GL_FALSE, 3 * 4, mTextureArray);
+   glEnableVertexAttribArray(fbTextureCoordHandle);
+#endif
+    glBindTexture(GL_TEXTURE_2D, mColorTexture);
     glActiveTexture(GL_TEXTURE0);
+    glUniform1i(fbuTextureHandle, 0);
     // 绘制图元
-    glDrawArrays(GL_TRIANGLES, 0, 8);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+#endif
 
-     glDeleteTextures(1, &renderedTexture);
-     glDeleteFramebuffers(1, &FramebufferName);
-     glDeleteRenderbuffers(1,&renderedTexture);
+
 }
-Shape::Shape() {
+Shape::Shape() :bmpPtr(NULL){
     initVertex();
 }
 Shape::~Shape() {
+
+    glDeleteTextures(1, &mLoadedTextureId);
+    glDeleteTextures(1, &mColorTexture);
+    glDeleteFramebuffers(1, &mFramebufferName);
+
     delete [] mVertexArray;
     delete [] mColorArray;
+
+
 }
 
 
@@ -312,4 +359,16 @@ unsigned char * Shape::loadBMPRaw(const char * imagepath, unsigned int& outWidth
     }
 
     return data;
+}
+
+
+
+// from android samples
+/* return current time in milliseconds */
+ double Shape::now_ms(void) {
+
+    struct timespec res;
+    clock_gettime(CLOCK_REALTIME, &res);
+    return 1000.0 * res.tv_sec + (double) res.tv_nsec / 1e6;
+
 }

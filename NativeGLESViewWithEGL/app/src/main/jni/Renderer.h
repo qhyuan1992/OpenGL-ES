@@ -30,7 +30,7 @@ public:
 
      void nativeDraw();
 
-
+    void setBmpPtr( int* ptr ,int w, int h);
 private:
     enum RenderEvent {
         RE_NONE,
@@ -63,7 +63,9 @@ private:
     void terminateDisplay();
 
     bool mISRenderering;
-
+    int* BMPptr;
+    int BMPW ;
+    int BMPH  ;
 };
 
 

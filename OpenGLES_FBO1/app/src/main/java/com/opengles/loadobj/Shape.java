@@ -19,8 +19,17 @@ import android.util.Log;
 
 public class Shape {
 	private static String TAG = "Shape";
-	private float vertices[];
-	private float texures[];
+	private float vertices[] = {(float) -1, (float) -1, 0,
+			(float) 1, (float) -1, 0,
+			(float) -1, (float) 1, 0,
+			(float) 1, (float) 1, 0,
+	};;
+	private float texures[] = new float[] {
+			(float) 0, (float)1, 0,
+			(float) 0, (float)0, 0,
+			(float) 1, (float) 1, 0,
+			(float) 1, (float) 0, 0,
+	};
 	private float normals[];
 	private FloatBuffer mVertexBuffer;
 	private FloatBuffer mTexureBuffer;
@@ -52,28 +61,28 @@ public class Shape {
 		mSqureBuffer = vbb0.asFloatBuffer();
 		mSqureBuffer.put(squareVertexs);
 		mSqureBuffer.position(0);
-		InputStream is = null;
-		try {
-			is = mContext.getAssets().open("obj.obj");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		RawOpenGLModel openGLModel = new Obj2OpenJL().convert(is);
-		OpenGLModelData openGLModelData = openGLModel.normalize().center().getDataForGLDrawArrays();
-		vertices = openGLModelData.getVertices();
+		//InputStream is = null;
+		//try {
+		//	is = mContext.getAssets().open("obj.obj");
+		//} catch (IOException e) {
+		//	e.printStackTrace();
+		//}
+		//RawOpenGLModel openGLModel = new Obj2OpenJL().convert(is);
+		//OpenGLModelData openGLModelData = openGLModel.normalize().center().getDataForGLDrawArrays();
+		//vertices = //openGLModelData.getVertices();
 		mVertexCount = vertices.length / 3;
 		ByteBuffer vbb = ByteBuffer.allocateDirect(vertices.length * 4);
 		vbb.order(ByteOrder.nativeOrder());
 		mVertexBuffer = vbb.asFloatBuffer();
 		mVertexBuffer.put(vertices);
 		mVertexBuffer.position(0);
-		texures = openGLModelData.getTextureCoordinates();
+		//texures = openGLModelData.getTextureCoordinates();
 		ByteBuffer vbb2 = ByteBuffer.allocateDirect(texures.length * 4);
 		vbb2.order(ByteOrder.nativeOrder());
 		mTexureBuffer = vbb2.asFloatBuffer();
 		mTexureBuffer.put(texures);
 		mTexureBuffer.position(0);
-		normals = openGLModelData.getNormals();
+		//normals = openGLModelData.getNormals();
 		ByteBuffer vbb3 = ByteBuffer.allocateDirect(normals.length * 4);
 		vbb3.order(ByteOrder.nativeOrder());
 		mNormalBuffer = vbb3.asFloatBuffer();
@@ -269,7 +278,7 @@ public class Shape {
 	    GLES20.glEnableVertexAttribArray(positionHandle);
 	    GLES20.glEnableVertexAttribArray(textureCoordHandle);
 	    GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
-	    GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textureId);
+	    GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,mLoadedTextureId);// textureId);
 	    GLES20.glUniform1i(textureHandle, 0);
 	    GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
 	    GLES20.glDeleteTextures(1, textures, 0);

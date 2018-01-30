@@ -5,7 +5,7 @@
 #ifndef NATIVEGLESVIEW_GLUTIL_H
 #define NATIVEGLESVIEW_GLUTIL_H
 
-#include <GLES2/gl2.h>
+#include <GLES3/gl3.h>
 #include <android/log.h>
 #define LOGI(level, ...) __android_log_print(ANDROID_LOG_INFO, "NATIVE_LOG", __VA_ARGS__)
 class GLUtil {

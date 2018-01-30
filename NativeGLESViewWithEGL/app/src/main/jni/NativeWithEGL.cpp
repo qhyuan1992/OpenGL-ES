@@ -1,19 +1,40 @@
 #include <jni.h>
 #include "Renderer.h"
 #include <android/native_window_jni.h>
-
+#include <android/bitmap.h>
+#include <android/log.h>
 
 
 ANativeWindow * mWindow;
 Renderer * mRenderer;
-
+#define LOGI(level, ...) __android_log_print(ANDROID_LOG_INFO, "NATIVE_LOG", __VA_ARGS__)
 extern "C" {
 JNIEXPORT void JNICALL
-Java_com_example_weiersyuan_nativeglesviewwithegl_MySurfaceView_nativeStartRender(JNIEnv *env,int width, int height, jobject  ptr,
-                                                                                  jclass type) {
-    mRenderer = new Renderer();
-    mRenderer->start();
+Java_com_example_weiersyuan_nativeglesviewwithegl_MySurfaceView_nativeStartRender(JNIEnv *env,
+                                                                                  jclass type ,
+                                                                                  jobject bmpObj) {
+    AndroidBitmapInfo bmpInfo = {0};
+    if (AndroidBitmap_getInfo(env, bmpObj, &bmpInfo) < 0) {
+        LOGI(1," AndroidBitmap_getInfo fail");
+        return ;
+    }
 
+   // if (bmpInfo.format != ANDROID_BITMAP_FORMAT_RGB_565) {
+    LOGI(1," bmpInfo.format =%d width = %d height = %d!", bmpInfo.format, bmpInfo.width, bmpInfo.height);
+    //  return -1;
+    // }
+    int *dataFromBmp = NULL;
+
+    if (AndroidBitmap_lockPixels(env, bmpObj, (void **) &dataFromBmp) < 0) {
+        return ;
+    }
+    LOGI(1,"new Rendererstart()");
+    mRenderer = new Renderer();
+    mRenderer->setBmpPtr(dataFromBmp, bmpInfo.width, bmpInfo.height );
+    mRenderer->start();
+    //if (AndroidBitmap_unlockPixels(env, bmpObj) < 0){
+    //    return ;
+    //}
 }
 
 JNIEXPORT void JNICALL
@@ -41,5 +62,6 @@ Java_com_example_weiersyuan_nativeglesviewwithegl_MySurfaceView_nativeRequestRen
     mRenderer->requestRenderFrame();
 
 }
+
 
 }
