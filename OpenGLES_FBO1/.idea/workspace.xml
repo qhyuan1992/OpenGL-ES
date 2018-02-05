@@ -1,55 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="adf05023-ce90-41bb-8c37-fcd3016b01ab" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/flower-web.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/flowerblue-web.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-hdpi/test.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-mdpi/test.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-xhdpi/test.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-xxhdpi/test.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-hdpi/flower.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-hdpi/flowerblue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-mdpi/flower.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-mdpi/flowerblue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xhdpi/flower.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xhdpi/flowerblue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xxhdpi/flower.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xxhdpi/flowerblue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xxxhdpi/flower.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xxxhdpi/flowerblue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/android_android_15.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/annotations_android_15.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xxhdpi/old.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-hdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-mdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESView/.idea/misc.xml" afterPath="$PROJECT_DIR$/../NativeGLESView/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/.idea/gradle.xml" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/.idea/modules.xml" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/build.gradle" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/build.gradle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-hdpi/bluef.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-hdpi/rgb.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-mdpi/bluef.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-mdpi/rgb.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-xhdpi/bluef.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-xxhdpi/bluef.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable/bluef.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable/rgb.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-hdpi/bluef.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-hdpi/rgb.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-mdpi/bluef.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xhdpi/bluef.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xxhdpi/bluef.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xxxhdpi/bluef.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xxxhdpi/rgb.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/fourk.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-hdpi/fourk.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-hdpi/test.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-mdpi/fourk.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-mdpi/test.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-xhdpi/fourk.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-xhdpi/test.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-xxhdpi/fourk.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable-xxhdpi/test.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/drawable/fourk.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-hdpi/fourk.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-mdpi/fourk.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xhdpi/fourk.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xxhdpi/fourk.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/mipmap-xxxhdpi/fourk.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/fourk.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/4k.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/fourk.jpg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/.idea/misc.xml" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/java/com/example/weiersyuan/nativeglesviewwithegl/MainActivity.java" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/java/com/example/weiersyuan/nativeglesviewwithegl/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/java/com/example/weiersyuan/nativeglesviewwithegl/MySurfaceView.java" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/java/com/example/weiersyuan/nativeglesviewwithegl/MySurfaceView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/jni/Android.mk" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/jni/Android.mk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/jni/GLUtil.h" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/jni/GLUtil.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/jni/NativeWithEGL.cpp" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/jni/NativeWithEGL.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/jni/Renderer.cpp" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/jni/Renderer.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/jni/Renderer.h" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/jni/Renderer.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/jni/Shape.cpp" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/jni/Shape.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/jni/Shape.h" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/jni/Shape.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NativeGLESViewWithEGL/settings.gradle" afterPath="$PROJECT_DIR$/../NativeGLESViewWithEGL/settings.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/opengles/loadobj/Shape.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/opengles/loadobj/Shape.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../README.md" afterPath="$PROJECT_DIR$/../README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../_config.yml" afterPath="$PROJECT_DIR$/../_config.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../build.gradle" afterPath="$PROJECT_DIR$/../build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gradlew.bat" afterPath="$PROJECT_DIR$/../gradlew.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../import-summary.txt" afterPath="$PROJECT_DIR$/../import-summary.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../settings.gradle" afterPath="$PROJECT_DIR$/../settings.gradle" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,22 +82,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Execute_obj2openjlv3.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/Execute_obj2openjlv3.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ShapeView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/opengles/loadobj/ShapeView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="885">
               <caret line="68" column="40" lean-forward="false" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="false" />
@@ -100,65 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Obj2OpenJL.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/Obj2OpenJL.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1591#1592#0" expanded="false" />
-                <element signature="e#1618#1619#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LineReader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/io/LineReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TextureMatcher.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/matcher/implementation/TextureMatcher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#433#434#0" expanded="false" />
-                <element signature="e#470#471#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VertexMatcher.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/matcher/implementation/VertexMatcher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#419#420#0" expanded="false" />
-                <element signature="e#455#456#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Shape.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/opengles/loadobj/Shape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="283" column="31" lean-forward="false" selection-start-line="283" selection-start-column="15" selection-end-line="283" selection-end-column="31" />
+            <state relative-caret-position="-1420">
+              <caret line="53" column="28" lean-forward="false" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -166,24 +108,78 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/opengles/loadobj/MainActivity.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="12" column="15" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state relative-caret-position="285">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FloatArrayConvertible.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/util/FloatArrayConvertible.java">
+      <file leaf-file-name="local.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="43" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="texture.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/texture.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fourk.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-ldpi/fourk.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/settings.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gradle-wrapper.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/opengles/loadobj/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="12" column="15" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="15" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -198,6 +194,7 @@
       <find>mContext</find>
       <find>mSqureBuffer</find>
       <find>normals</find>
+      <find>squareVertexs</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1936,14 +1933,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/opengles/loadobj/Shape.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-138" />
-    <option name="y" value="248" />
-    <option name="width" value="1234" />
+    <option name="x" value="2" />
+    <option name="y" value="22" />
+    <option name="width" value="1230" />
     <option name="height" value="778" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -1962,6 +1960,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1970,48 +1969,15 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OpenGLES_FBO1" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OpenGLES_FBO1" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drawable" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2019,6 +1985,12 @@
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
+    <property name="device.picker.selection" value="10.230.37.36:5555" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-ldpi" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -2103,7 +2075,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517286676904" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517797860099" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2151,7 +2123,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517286676905" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517797860099" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2183,27 +2155,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -2288,7 +2239,7 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="false" name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration default="false" name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="app" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
@@ -2334,7 +2285,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517286676905" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517797860099" />
       </method>
     </configuration>
     <list size="1">
@@ -2362,6 +2313,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="adf05023-ce90-41bb-8c37-fcd3016b01ab" name="Default" comment="" />
@@ -2373,7 +2327,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-138" y="248" width="1234" height="778" extended-state="0" />
+    <frame x="2" y="22" width="1230" height="778" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2386,17 +2340,17 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2340604" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23400673" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2416,103 +2370,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/matcher/implementation/TextureMatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#433#434#0" expanded="false" />
-            <element signature="e#470#471#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/matcher/implementation/VertexMatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#419#420#0" expanded="false" />
-            <element signature="e#455#456#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/opengles/loadobj/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="15" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/util/ListUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#376#383#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/util/FloatArrayConvertible.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/opengles/loadobj/Shape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="76" column="34" lean-forward="false" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/Execute_obj2openjlv3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/opengles/loadobj/ShapeView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="77" column="25" lean-forward="false" selection-start-line="77" selection-start-column="23" selection-end-line="77" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1258#1259#0" expanded="false" />
-            <element signature="e#1291#1292#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/Obj2OpenJL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1591#1592#0" expanded="false" />
-            <element signature="e#1618#1619#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/opengles/loadobj/Shape.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2055">
@@ -2534,7 +2391,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2639,25 +2495,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#643#644#0" expanded="false" />
-            <element signature="e#714#715#0" expanded="false" />
-            <element signature="e#761#762#0" expanded="false" />
-            <element signature="e#811#812#0" expanded="false" />
-            <element signature="e#841#842#0" expanded="false" />
-            <element signature="e#858#859#0" expanded="false" />
-            <element signature="e#888#889#0" expanded="false" />
-            <element signature="e#905#906#0" expanded="false" />
-            <element signature="e#935#936#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="false" />
-            <element signature="e#976#977#0" expanded="false" />
-            <element signature="e#991#992#0" expanded="false" />
-            <element signature="e#1015#1016#0" expanded="false" />
-            <element signature="e#1030#1031#0" expanded="false" />
-            <element signature="e#1054#1055#0" expanded="false" />
-            <element signature="e#1069#1070#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2679,27 +2516,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#432#433#0" expanded="false" />
-            <element signature="e#447#448#0" expanded="false" />
-            <element signature="e#471#472#0" expanded="false" />
-            <element signature="e#486#487#0" expanded="false" />
-            <element signature="e#510#511#0" expanded="false" />
-            <element signature="e#525#526#0" expanded="false" />
-            <element signature="e#549#550#0" expanded="false" />
-            <element signature="e#564#565#0" expanded="false" />
-            <element signature="e#594#595#0" expanded="false" />
-            <element signature="e#611#612#0" expanded="false" />
-            <element signature="e#641#642#0" expanded="false" />
-            <element signature="e#658#659#0" expanded="false" />
-            <element signature="e#688#689#0" expanded="false" />
-            <element signature="e#705#706#0" expanded="false" />
-            <element signature="e#855#856#0" expanded="false" />
-            <element signature="e#913#914#0" expanded="false" />
-            <element signature="e#1077#1078#0" expanded="false" />
-            <element signature="e#1139#1140#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2707,15 +2523,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2099#2100#0" expanded="false" />
-            <element signature="e#2118#2119#0" expanded="false" />
-            <element signature="e#3535#3536#0" expanded="false" />
-            <element signature="e#3584#3585#0" expanded="false" />
-            <element signature="e#4371#4372#0" expanded="false" />
-            <element signature="e#4400#4401#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2723,13 +2530,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-132">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#616#617#0" expanded="false" />
-            <element signature="e#666#667#0" expanded="false" />
-            <element signature="e#820#821#0" expanded="false" />
-            <element signature="e#862#863#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2749,7 +2549,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2761,27 +2560,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/jre/jdk/Contents/Home/jre/lib/rt.jar!/java/lang/Object.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/texture.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-ldpi/texture.jpg" />
@@ -2797,80 +2590,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#376#383#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/util/FloatArrayConvertible.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="30">
           <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/Execute_obj2openjlv3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
+        <state relative-caret-position="60">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/Obj2OpenJL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="870">
           <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1591#1592#0" expanded="false" />
-            <element signature="e#1618#1619#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/matcher/implementation/VertexMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="60">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#419#420#0" expanded="false" />
-            <element signature="e#455#456#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/matcher/implementation/TextureMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="60">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#433#434#0" expanded="false" />
-            <element signature="e#470#471#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/obj2openjl/v3/io/LineReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="60">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/opengles/loadobj/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="165">
           <caret line="12" column="15" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="false" />
@@ -2878,9 +2645,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/opengles/loadobj/ShapeView.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/4k.jpg" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/fourk.jpg" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-ldpi/4k.jpg" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-mdpi/fourk.jpg" />
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="43" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/texture.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-ldpi/fourk.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/opengles/loadobj/ShapeView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
           <caret line="68" column="40" lean-forward="false" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="false" />
@@ -2890,15 +2711,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/4k.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/opengles/loadobj/Shape.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="283" column="31" lean-forward="false" selection-start-line="283" selection-start-column="15" selection-end-line="283" selection-end-column="31" />
+        <state relative-caret-position="-1420">
+          <caret line="53" column="28" lean-forward="false" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 15
+    compileSdkVersion 25
     buildToolsVersion "26.0.2"
 
     defaultConfig {
         applicationId "com.opengles.loadobj"
         minSdkVersion 14
-        targetSdkVersion 20
+        targetSdkVersion 25
     }
 
     buildTypes {

@@ -76,19 +76,19 @@ public class Shape {
 		mVertexBuffer = vbb.asFloatBuffer();
 		mVertexBuffer.put(vertices);
 		mVertexBuffer.position(0);
-		//texures = openGLModelData.getTextureCoordinates();
+		texures = openGLModelData.getTextureCoordinates();
 		ByteBuffer vbb2 = ByteBuffer.allocateDirect(texures.length * 4);
 		vbb2.order(ByteOrder.nativeOrder());
 		mTexureBuffer = vbb2.asFloatBuffer();
 		mTexureBuffer.put(texures);
 		mTexureBuffer.position(0);
-		//normals = openGLModelData.getNormals();
+		normals = openGLModelData.getNormals();
 		ByteBuffer vbb3 = ByteBuffer.allocateDirect(normals.length * 4);
 		vbb3.order(ByteOrder.nativeOrder());
 		mNormalBuffer = vbb3.asFloatBuffer();
 		mNormalBuffer.put(normals);
 		mNormalBuffer.position(0);
-		initTexture(R.drawable.texture);
+		initTexture(R.drawable.fourk);
 	}
 	
 	public void initTexture(int res) {
